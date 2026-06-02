@@ -39,7 +39,7 @@ export default function Experience() {
         {/* Section Headline */}
         <div className="mb-16">
           <p className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-warm-ivory/60 mb-4 font-medium">
-            [ 04 &bull; STUDIO STANDARDS ]
+            [ 05 &bull; STUDIO STANDARDS ]
           </p>
           <h2 className="font-display font-light text-4xl md:text-6xl tracking-tight uppercase text-warm-ivory">
             THE EXPERIENCE

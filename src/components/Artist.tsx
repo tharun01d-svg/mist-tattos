@@ -18,7 +18,7 @@ export default function Artist() {
           <div className="lg:col-span-7 flex flex-col space-y-8 order-2 lg:order-1">
             <div>
               <p className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-matte-black/60 mb-4 font-medium">
-                [ 03 &bull; THE ARTIST ]
+                [ 04 &bull; THE ARTIST ]
               </p>
               <h2 className="font-display font-light text-4xl md:text-6xl tracking-tight leading-none uppercase text-matte-black">
                 SHRIDHAR

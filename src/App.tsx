@@ -9,6 +9,7 @@ import { BookingSubmission } from "./types";
 // Import all custom premium sections
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Services from "./components/Services";
 import Gallery from "./components/Gallery";
 import Artist from "./components/Artist";
 import Experience from "./components/Experience";
@@ -17,6 +18,7 @@ import Contact from "./components/Contact";
 import BookingDashboard from "./components/BookingDashboard";
 import Footer from "./components/Footer";
 import FloatingInstagram from "./components/FloatingInstagram";
+import BestTattoosPopup from "./components/BestTattoosPopup";
 
 export default function App() {
   const [bookings, setBookings] = useState<BookingSubmission[]>([]);
@@ -81,6 +83,9 @@ export default function App() {
       {/* 2. Full-screen Immersive Widescreen Hero */}
       <Hero onOpenBooking={() => setIsPortalOpen(true)} />
 
+      {/* 3. Aesthetic & Body Art Services (Off-white block) */}
+      <Services />
+
       {/* 4. Asymmetrical Masonry Portfolio (Matte Black block) */}
       <Gallery />
 
@@ -109,6 +114,9 @@ export default function App() {
 
       {/* 11. Custom Floating Social Interaction Badges */}
       <FloatingInstagram />
+
+      {/* 12. Best Tattoos of the Month Interactive Popup Badge */}
+      <BestTattoosPopup />
     </div>
   );
 }

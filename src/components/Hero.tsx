@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Phone, MessageSquare, X, ArrowUpRight, CheckCircle2, Clock, Calendar } from "lucide-react";
+import { Phone, MessageSquare, X, ArrowUpRight, CheckCircle2, Clock, Calendar, MapPin } from "lucide-react";
 import heroImg from "../assets/images/hero_studio_1780323029807.png";
 
 interface HeroProps {
@@ -82,7 +82,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display font-light text-5xl sm:text-7xl lg:text-[6rem] tracking-tight leading-[0.95] text-matte-black uppercase mb-8"
+            className="font-display font-bold text-[40px] tracking-tight leading-[42.5px] text-matte-black text-center uppercase -ml-[150px] -mr-[149px] -mt-[4px] mb-[31px] border border-solid border-matte-black"
           >
             Compositional <br />
             <span className="italic font-normal tracking-wide lowercase text-matte-black/65 block my-1">
@@ -91,17 +91,46 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             on skin.
           </motion.h1>
 
-          {/* Supporting Bio/Philosophy Statement */}
-          <motion.p
+          {/* Supporting Bio/Philosophy Statement - Replaced with Beautiful Interactive Maps Card */}
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-sans text-sm sm:text-base tracking-wide text-matte-black/75 leading-relaxed font-light mb-10 max-w-2xl mx-auto"
+            className="mb-10 max-w-2xl mx-auto w-full"
           >
-            A private, clinical-standard art studio specializing in fine-line geometry, 
-            delicate blackwork illustrative structures, and high-fidelity custom portraits. 
-            We study your posture and muscular alignment to ensure perfect composition.
-          </motion.p>
+            <a
+              href="https://maps.app.goo.gl/5o5VGzuRU2aBkFht9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block border border-matte-black/10 hover:border-[#C4A482] bg-matte-black/[0.02] hover:bg-matte-black/[0.04] p-5 transition-all duration-300 text-left relative"
+            >
+              {/* Corner accent decorations for luxury feel */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-matte-black/20 group-hover:border-[#C4A482] transition-colors" />
+              <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-matte-black/20 group-hover:border-[#C4A482] transition-colors" />
+              <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-matte-black/20 group-hover:border-[#C4A482] transition-colors" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-matte-black/20 group-hover:border-[#C4A482] transition-colors" />
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-start sm:items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-[#C4A482]/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <MapPin className="w-4.5 h-4.5 text-[#C4A482]" />
+                  </div>
+                  <div>
+                    <span className="font-mono text-[9px] tracking-[0.25em] text-[#C4A482] font-semibold uppercase block mb-1">
+                      Atelier Location &bull; MAP CODE: 8QFF+8M Chikkamagaluru
+                    </span>
+                    <p className="font-sans text-[11px] sm:text-xs text-matte-black/85 leading-relaxed tracking-wide font-light">
+                      2nd Floor, Near Sangitha Mobiles, MG Rd, opp. Namma Angadi, Chikkamagaluru, Karnataka - 577101
+                    </p>
+                  </div>
+                </div>
+                <div className="shrink-0 ml-auto sm:ml-0 flex items-center text-[#C4A482] font-sans text-[9px] tracking-widest font-bold uppercase gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>View Map</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+            </a>
+          </motion.div>
 
           {/* Actions Block */}
           <motion.div

@@ -57,7 +57,7 @@ export default function Gallery() {
   );
 
   const categories: { label: string; value: GalleryItem["category"] }[] = [
-    { label: "ALL COLLECTIVES", value: "all" },
+    { label: "ALL WORKS", value: "all" },
     { label: "FINE-LINE", value: "fine-line" },
     { label: "MINIMALIST", value: "minimalist" },
     { label: "BLACKWORK", value: "blackwork" },
@@ -73,7 +73,7 @@ export default function Gallery() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <p className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-warm-ivory/60 mb-4 font-medium">
-              [ 02 &bull; SELECTED WORKS ]
+              [ 03 &bull; SELECTED WORKS ]
             </p>
             <h2 className="font-display font-light text-4xl md:text-6xl tracking-tight uppercase text-warm-ivory">
               FEATURED PORTFOLIO
@@ -184,9 +184,19 @@ export default function Gallery() {
                 initial={{ scale: 0.95, y: 15 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.95, y: 15 }}
-                className="bg-matte-black border border-warm-ivory/15 max-w-4xl w-full p-4 md:p-8 flex flex-col md:flex-row gap-8 items-stretch justify-center relative shadow-2xl"
+                className="bg-matte-black border border-warm-ivory/15 max-w-4xl w-full p-6 md:p-8 flex flex-col md:flex-row gap-8 items-stretch justify-center relative shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
               >
+                {/* Close Button Inside the Card Area */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedItem(null)}
+                  className="absolute top-4 right-4 z-20 bg-matte-black/80 hover:bg-matte-black text-warm-ivory hover:text-[#C4A482] border border-warm-ivory/15 hover:border-[#C4A482]/50 p-2 transition-all cursor-pointer"
+                  title="Close selection"
+                  id="close-gallery-card-btn"
+                >
+                  <X className="w-4 h-4" />
+                </button>
                 {/* Expanded Photo Frame */}
                 <div className="w-full md:w-3/5 aspect-[3/4] relative bg-[#151515] overflow-hidden">
                   <img
