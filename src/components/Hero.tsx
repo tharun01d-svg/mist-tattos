@@ -3,7 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Phone, MessageSquare, X, ArrowUpRight, CheckCircle2, Clock, Calendar } from "lucide-react";
 import heroImg from "../assets/images/hero_studio_1780323029807.png";
 
 interface HeroProps {
@@ -11,6 +13,17 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenBooking }: HeroProps) {
+  const [isCallPopupOpen, setIsCallPopupOpen] = useState(false);
+
+  const handlePhoneCall = () => {
+    window.location.href = "tel:+918431136665";
+  };
+
+  const handleWhatsAppChat = () => {
+    const message = encodeURIComponent("Hello mist Tattoos, I would like to schedule a custom luxury consultation.");
+    window.open(`https://wa.me/918431136665?text=${message}`, "_blank");
+  };
+
   return (
     <section
       id="hero"
@@ -95,16 +108,30 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center gap-6 justify-center w-full"
+            className="flex flex-col sm:flex-row items-center gap-4 justify-center w-full max-w-2xl"
           >
             <button
               onClick={onOpenBooking}
-              className="bg-matte-black border border-transparent text-warm-ivory px-10 py-5 text-xs uppercase tracking-[0.25em] font-medium hover:bg-transparent hover:border-matte-black hover:text-matte-black transition-all duration-300 transform active:scale-95 cursor-pointer text-center w-full sm:w-auto"
+              className="bg-matte-black border border-transparent text-warm-ivory px-8 py-4.5 text-xs uppercase tracking-[0.25em] font-medium hover:bg-transparent hover:border-matte-black hover:text-matte-black transition-all duration-300 transform active:scale-95 cursor-pointer text-center w-full sm:w-auto inline-flex items-center justify-center gap-3"
             >
+              <Calendar className="w-4 h-4 text-[#C4A482]" />
               Book An Appointment &rarr;
             </button>
+
+            <button
+              onClick={() => setIsCallPopupOpen(true)}
+              className="bg-[#C4A482]/10 border border-[#C4A482]/30 text-matte-black px-8 py-4.5 text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#C4A482] hover:text-white hover:border-[#C4A482] transition-all duration-300 transform active:scale-95 cursor-pointer text-center w-full sm:w-auto inline-flex items-center justify-center gap-3 relative overflow-hidden group"
+            >
+              {/* Pulse effect indicator */}
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>Call Artist Desk</span>
+              <Phone className="w-3.5 h-3.5 pl-[1px] text-matte-black/65 group-hover:text-white transition-colors" />
+            </button>
             
-            <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:pl-2">
               <span className="font-sans text-[10px] tracking-[0.2em] font-bold text-matte-black uppercase">
                 strictly appointment only
               </span>
@@ -133,7 +160,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               <span className="font-mono text-[9px] text-matte-black/40 uppercase tracking-widest">Atelier Rank</span>
               <span className="font-sans text-[11px] font-bold text-[#9C8567] mt-1 uppercase tracking-wide">★ #1 Rated Shop</span>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center flex-1">
               <span className="font-mono text-[9px] text-matte-black/40 uppercase tracking-widest">Booking Status</span>
               <span className="font-sans text-[11px] font-semibold text-emerald-700 mt-1 uppercase tracking-wider flex items-center gap-1.5 justify-center">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
@@ -157,6 +184,117 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           />
         </a>
       </div>
+
+      {/* LUXURY INTERACTIVE CONTACT DESK POPUP */}
+      <AnimatePresence>
+        {isCallPopupOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop with elegant blur */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsCallPopupOpen(false)}
+              className="absolute inset-0 bg-matte-black/70 backdrop-blur-md"
+            />
+
+            {/* Modal Body */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
+              className="bg-warm-ivory text-matte-black border border-matte-black/10 w-full max-w-md relative z-10 p-8 shadow-2xl overflow-hidden"
+            >
+              {/* Minimal geometric background detail */}
+              <div className="absolute -right-16 -top-16 w-32 h-32 border border-[#C4A482]/20 rounded-full pointer-events-none" />
+
+              {/* Close Button */}
+              <button
+                onClick={() => setIsCallPopupOpen(false)}
+                className="absolute top-5 right-5 text-matte-black/40 hover:text-matte-black transition-colors p-1"
+                aria-label="Close call desk"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Header */}
+              <div className="mb-6 relative">
+                <div className="flex items-center space-x-2.5 mb-2.5">
+                  <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="font-mono text-[9px] tracking-[0.25em] text-[#C4A482] font-semibold uppercase">
+                    Artist Hot Line Live
+                  </span>
+                </div>
+                <h3 className="font-display font-light text-2xl uppercase tracking-tight text-matte-black">
+                  Direct Atelier Line
+                </h3>
+                <p className="font-sans text-xs text-matte-black/60 leading-relaxed mt-1 font-light">
+                  Speak directly with Shridhar or queue your custom geometric consultation instantly.
+                </p>
+              </div>
+
+              {/* Verified Badge Details */}
+              <div className="space-y-3.5 mb-8">
+                <div className="flex items-start space-x-3 bg-matte-black/[0.03] p-3 text-left">
+                  <Clock className="w-4 h-4 text-[#C4A482] mt-0.5 shrink-0" />
+                  <div>
+                    <p className="font-sans text-[11px] font-bold uppercase tracking-wider text-matte-black">
+                      Office Response Hours
+                    </p>
+                    <p className="font-sans text-[10px] text-matte-black/55 uppercase tracking-wide mt-0.5">
+                      Mon &mdash; Sat, 10:00 &mdash; 19:00 IST
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 bg-matte-black/[0.03] p-3 text-left">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                  <div>
+                    <p className="font-sans text-[11px] font-bold uppercase tracking-wider text-matte-black">
+                      Direct Atelier Contact
+                    </p>
+                    <p className="font-mono text-xs text-matte-black/75 mt-0.5 tracking-wider">
+                      +91 84311 36665
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Elegant Visual Button Panel */}
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={handlePhoneCall}
+                  className="w-full bg-matte-black text-warm-ivory py-4 px-6 text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#C4A482] transition-all duration-300 flex items-center justify-center gap-3.5 cursor-pointer shadow-sm active:scale-[0.98]"
+                >
+                  <Phone className="w-4 h-4 text-[#C4A482]" />
+                  Secure Voice Call
+                  <ArrowUpRight className="w-3.5 h-3.5 text-warm-ivory/50" />
+                </button>
+
+                <button
+                  onClick={handleWhatsAppChat}
+                  className="w-full bg-emerald-950/5 border border-emerald-500/20 text-emerald-900 py-4 px-6 text-xs uppercase tracking-[0.2em] font-medium hover:bg-emerald-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-3.5 cursor-pointer active:scale-[0.98]"
+                >
+                  <MessageSquare className="w-4 h-4 text-emerald-600" />
+                  Instant WhatsApp
+                  <ArrowUpRight className="w-3.5 h-3.5 text-emerald-600/50" />
+                </button>
+              </div>
+
+              {/* Disclaimer / Secure Connection Badge */}
+              <div className="mt-6 text-center">
+                <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-matte-black/35">
+                  - CLINICAL STANDARD &bull; APP-BASED CALL DESK -
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
