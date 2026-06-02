@@ -9,7 +9,7 @@ import { Instagram, MessageCircle } from "lucide-react";
 export default function FloatingInstagram() {
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hello mist Tattoos, I would like to schedule a custom luxury consultation.");
-    window.open(`https://wa.me/919632557189?text=${message}`, "_blank");
+    window.open(`https://wa.me/918431136665?text=${message}`, "_blank");
   };
 
   return (

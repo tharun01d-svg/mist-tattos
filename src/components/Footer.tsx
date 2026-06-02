@@ -13,7 +13,7 @@ export default function Footer() {
 
   const socialLinks = [
     { label: "INSTAGRAM", href: "https://www.instagram.com/mist_tattoo_chikmagalur/", code: "@mist_tattoo_chikmagalur" },
-    { label: "WHATSAPP CHAT", href: "https://wa.me/919632557189", code: "+91 96325 57189" },
+    { label: "WHATSAPP CHAT", href: "https://wa.me/918431136665", code: "+91 84311 36665" },
     { label: "GOOGLE LOCATION", href: "https://maps.app.goo.gl/5o5VGzuRU2aBkFht9", code: "8QFF+8M, MG Road" },
     { label: "JOURNAL PUBLICATION", href: "#", code: "sub/mist-journal" },
   ];

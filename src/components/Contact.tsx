@@ -131,7 +131,7 @@ export default function Contact({ onAddBooking }: ContactProps) {
   const handleWhatsAppRedirect = () => {
     // Beautiful clean WhatsApp API bridge
     const message = encodeURIComponent("Hello mist Tattoos, I would like to schedule a custom luxury consultation.");
-    window.open(`https://wa.me/919632557189?text=${message}`, "_blank");
+    window.open(`https://wa.me/918431136665?text=${message}`, "_blank");
   };
 
   return (
@@ -190,8 +190,8 @@ export default function Contact({ onAddBooking }: ContactProps) {
                   <h4 className="font-display font-bold text-xs tracking-wider uppercase mb-1">
                     DIRECT VOICE LINK
                   </h4>
-                  <a href="tel:+919632557189" className="font-mono text-sm text-warm-ivory/80 hover:text-warm-ivory hover:underline transition-all">
-                    +91 96325 57189
+                  <a href="tel:+918431136665" className="font-mono text-sm text-warm-ivory/80 hover:text-warm-ivory hover:underline transition-all">
+                    +91 84311 36665
                   </a>
                   <p className="font-sans text-[10px] text-warm-ivory/40 uppercase mt-0.5">
                     Monday to Saturday, 10:00 &mdash; 19:00 IST
@@ -331,7 +331,7 @@ export default function Contact({ onAddBooking }: ContactProps) {
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        placeholder="e.g. +91 96325 57189"
+                        placeholder="e.g. +91 84311 36665"
                         className="bg-matte-black text-warm-ivory border border-warm-ivory/20 px-4 py-3 text-xs tracking-wider outline-none focus:border-warm-ivory transition-colors placeholder:text-warm-ivory/25"
                         required
                       />
