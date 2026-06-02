@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { Phone, MapPin, MessageSquare, Check, AlertCircle } from "lucide-react";
 import { BookingSubmission } from "../types";
 
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "0be1197b-a709-40e0-8133-a4366632030e";
+
 interface ContactProps {
   onAddBooking: (booking: Omit<BookingSubmission, "id" | "status" | "createdAt">) => void;
 }
@@ -40,9 +42,9 @@ export default function Contact({ onAddBooking }: ContactProps) {
 
     setIsSubmitting(true);
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    const accessKey = WEB3FORMS_ACCESS_KEY;
 
-    if (!accessKey) {
+    if (!accessKey || accessKey === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
       // If no key is set yet, we will log a warning and fallback gracefully to local dashboard booking persistence so they can continue testing.
       console.warn("VITE_WEB3FORMS_ACCESS_KEY is not defined. Falling back to reservation simulation.");
       
@@ -430,9 +432,9 @@ export default function Contact({ onAddBooking }: ContactProps) {
                     </button>
                   </div>
 
-                  {!import.meta.env.VITE_WEB3FORMS_ACCESS_KEY && (
+                  {(WEB3FORMS_ACCESS_KEY === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") && (
                     <div className="mt-4 border border-warm-ivory/10 p-3 bg-matte-black/40 text-[10px] text-warm-ivory/40 tracking-wider leading-relaxed font-light font-sans text-center">
-                      [ WEB3FORMS NOTICE ] : SET <span className="text-warm-ivory/60 font-medium">VITE_WEB3FORMS_ACCESS_KEY</span> IN SECRETS TO ROUTE EMAILS TO YOUR PREFERRED INBOX. ACTIONS TAKEN NOW SIMULATE RESERVATIONS LOCALLY.
+                      [ WEB3FORMS NOTICE ] : SET <span className="text-warm-ivory/60 font-medium">VITE_WEB3FORMS_ACCESS_KEY</span> IN SECRETS OR CONFLICT DIRECTLY IN THE SOURCE CODE TO ROUTE EMAILS TO YOUR PREFERRED INBOX. ACTIONS TAKEN NOW SIMULATE RESERVATIONS LOCALLY.
                     </div>
                   )}
                 </form>
