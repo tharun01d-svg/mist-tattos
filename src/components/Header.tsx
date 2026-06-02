@@ -45,12 +45,12 @@ export default function Header({ onOpenBooking, bookingCount }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3 select-none group">
-          <Logo className="w-10 h-10 transition-transform duration-500 group-hover:rotate-[15deg]" />
+          <Logo className="w-[70px] h-[100px] ml-0 transition-transform duration-500 group-hover:rotate-[15deg]" />
           <div className="flex flex-col items-start">
-            <span className="font-display font-light text-xl tracking-[0.2em] leading-none text-matte-black uppercase">
+            <span className="font-display font-light text-[70px] tracking-[0.2em] leading-none text-matte-black uppercase">
               mist
             </span>
-            <span className="font-sans text-[8px] tracking-[0.3em] text-matte-black/60 uppercase mt-0.5 font-semibold transition-colors group-hover:text-matte-black">
+            <span className="font-sans text-[20px] tracking-[0.3em] text-matte-black/60 uppercase mt-0.5 font-semibold transition-colors group-hover:text-matte-black">
               TATTOOS
             </span>
           </div>

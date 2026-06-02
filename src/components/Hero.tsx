@@ -102,29 +102,40 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               href="https://maps.app.goo.gl/5o5VGzuRU2aBkFht9"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block border border-matte-black/10 hover:border-[#C4A482] bg-matte-black/[0.02] hover:bg-matte-black/[0.04] p-5 transition-all duration-300 text-left relative"
+              className="group block border-2 border-red-600 bg-gradient-to-r from-warm-ivory via-red-50/10 to-warm-ivory shadow-[0_0_25px_rgba(220,38,38,0.25)] hover:shadow-[0_0_35px_rgba(220,38,38,0.45)] hover:bg-red-50/20 p-5 transition-all duration-300 text-left relative animate-pulse [animation-duration:2.5s]"
             >
-              {/* Corner accent decorations for luxury feel */}
-              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-matte-black/20 group-hover:border-[#C4A482] transition-colors" />
-              <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-matte-black/20 group-hover:border-[#C4A482] transition-colors" />
-              <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-matte-black/20 group-hover:border-[#C4A482] transition-colors" />
-              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-matte-black/20 group-hover:border-[#C4A482] transition-colors" />
+              {/* Vibrant Crimson Red beacon light in the top-right corner to draw immediate attention */}
+              <div className="absolute top-3 right-3 flex items-center space-x-1.5 bg-red-600 text-white px-2 py-0.5 rounded text-[8px] font-mono tracking-wider font-bold uppercase shadow-sm">
+                <span className="flex h-1.5 w-1.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
+                </span>
+                <span>TAP FOR DIRECTIONS</span>
+              </div>
+
+              {/* Corner accent decorations for luxury feel in crimson red */}
+              <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-red-600" />
+              <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-red-600" />
+              <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-red-600" />
+              <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-red-600" />
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-start sm:items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-[#C4A482]/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <MapPin className="w-4.5 h-4.5 text-[#C4A482]" />
+                  <div className="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 relative">
+                    {/* Ring animation */}
+                    <span className="absolute inset-0 rounded-full border border-red-600/40 animate-ping opacity-60 pointer-events-none" />
+                    <MapPin className="w-5.5 h-5.5 text-red-600" />
                   </div>
                   <div>
-                    <span className="font-mono text-[9px] tracking-[0.25em] text-[#C4A482] font-semibold uppercase block mb-1">
-                      Atelier Location &bull; MAP CODE: 8QFF+8M Chikkamagaluru
+                    <span className="font-mono text-[9px] tracking-[0.25em] text-red-600 font-bold uppercase block mb-1 animate-bounce [animation-duration:2s]">
+                      Live Studio Location &bull; MAP CODE: 8QFF+8M Chikkamagaluru
                     </span>
-                    <p className="font-sans text-[11px] sm:text-xs text-matte-black/85 leading-relaxed tracking-wide font-light">
+                    <p className="font-sans text-[11px] sm:text-xs text-matte-black leading-relaxed tracking-wide font-semibold">
                       2nd Floor, Near Sangitha Mobiles, MG Rd, opp. Namma Angadi, Chikkamagaluru, Karnataka - 577101
                     </p>
                   </div>
                 </div>
-                <div className="shrink-0 ml-auto sm:ml-0 flex items-center text-[#C4A482] font-sans text-[9px] tracking-widest font-bold uppercase gap-1 group-hover:translate-x-1 transition-transform">
+                <div className="shrink-0 ml-auto sm:ml-0 flex items-center text-red-600 font-sans text-[10px] tracking-widest font-extrabold uppercase gap-1 group-hover:translate-x-1.5 transition-transform bg-red-600/10 px-2.5 py-1.5 rounded border border-red-600/20">
                   <span>View Map</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>

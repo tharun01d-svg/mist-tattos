@@ -11,6 +11,7 @@ import { GalleryItem } from "../types";
 // Import custom generated images
 import gallery1 from "../assets/images/tattoo_gallery_1_1780323083679.png";
 import gallery2 from "../assets/images/tattoo_gallery_2_1780323103510.png";
+import gallery3 from "../assets/images/regenerated_image_1780406652733.png";
 import gallery6 from "../assets/images/neck_geometric_tattoo_1780327220263.png";
 
 const SAMPLE_GALLERY: GalleryItem[] = [
@@ -34,7 +35,7 @@ const SAMPLE_GALLERY: GalleryItem[] = [
     id: "gal-4",
     title: "Constellation Path",
     category: "fine-line",
-    imageUrl: "https://images.unsplash.com/photo-1562962230-16e4623d36e6?q=80&w=800&auto=format&fit=crop",
+    imageUrl: gallery3,
     dimensions: "8cm &times; 8cm",
     placement: "Cervical Spine Column",
   },

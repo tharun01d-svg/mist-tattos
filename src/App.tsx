@@ -9,8 +9,8 @@ import { BookingSubmission } from "./types";
 // Import all custom premium sections
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
 import Gallery from "./components/Gallery";
+import Services from "./components/Services";
 import Artist from "./components/Artist";
 import Experience from "./components/Experience";
 import Testimonials from "./components/Testimonials";
@@ -83,11 +83,11 @@ export default function App() {
       {/* 2. Full-screen Immersive Widescreen Hero */}
       <Hero onOpenBooking={() => setIsPortalOpen(true)} />
 
-      {/* 3. Aesthetic & Body Art Services (Off-white block) */}
-      <Services />
-
       {/* 4. Asymmetrical Masonry Portfolio (Matte Black block) */}
       <Gallery />
+
+      {/* 4.5. Specialized Services Offerings */}
+      <Services />
 
       {/* 5. Artist Portrait Frame & Chronology (Off-white canvas) */}
       <Artist />
@@ -98,7 +98,7 @@ export default function App() {
       {/* 7. Client Reviews Grid (Off-white canvas) */}
       <Testimonials />
 
-      {/* 8. Booking Center & Coordinate Details (Matte Black block) */}
+      {/* 9. Booking Center & Coordinate Details (Matte Black block) */}
       <Contact onAddBooking={handleAddBooking} />
 
       {/* 9. Standalone Luxury Footer Frame */}

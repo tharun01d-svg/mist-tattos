@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { X, Sparkles, ChevronLeft, ChevronRight, Bookmark, Award, Heart } from "lucide-react";
 
 // Import actual high-fidelity tattoo images for display
-import angelDnaImg from "../assets/images/angel_dna_tattoo_1780403277529.png";
+import angelDnaImg from "../assets/images/regenerated_image_1780406758726.jpg";
 import samuraiImg from "../assets/images/japanese_samurai_tattoo_1780403108019.png";
 import portraitImg from "../assets/images/portrait_shading_tattoo_1780403621718.png";
 

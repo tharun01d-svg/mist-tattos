@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import logoImg from "../assets/images/mist_tattoo_logo_1780399448720.png";
+import logoImg from "../assets/images/regenerated_image_1780406027532.png";
 
 interface LogoProps {
   className?: string;
