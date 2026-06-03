@@ -1,0 +1,1437 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mist Tattoos | Premium Standalone Edition</title>
+    
+    <!-- Google Fonts: Inter, Space Grotesk, Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS (CDN for ultimate plug-and-play local rendering) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configure Tailwind with custom luxury design tokens -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+            },
+            colors: {
+              'warm-ivory': '#FAF9F5',
+              'matte-black': '#121212',
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Fine styling accents */
+      .bg-blueprint {
+        background-size: 40px 40px;
+        background-image: 
+          linear-gradient(to right, rgba(18, 18, 18, 0.02) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(18, 18, 18, 0.02) 1px, transparent 1px);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(18, 18, 18, 0.03);
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #121212;
+      }
+    </style>
+
+    <!-- Lucide Icons Library for beautiful UI markers -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="relative min-h-screen bg-[#FAF9F5] text-[#121212] selection:bg-[#121212] selection:text-[#FAF9F5] overflow-x-hidden font-sans bg-blueprint">
+
+    <!-- 1. Universal Floating Brand Header -->
+    <header class="fixed top-0 inset-x-0 z-40 bg-[#FAF9F5]/85 backdrop-blur-md border-b border-[#121212]/5 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 md:h-24 flex items-center justify-between">
+        <!-- Logo Brand -->
+        <a href="#hero" class="flex flex-col items-start leading-none group">
+          <span class="font-display font-light text-xl tracking-[0.25em] uppercase text-[#121212] group-hover:tracking-[0.3em] transition-all">
+            MIST <span class="text-red-600 font-normal">TATTOOS</span>
+          </span>
+          <span class="font-mono text-[7px] tracking-[0.4em] text-[#121212]/40 uppercase mt-1">
+            Chikmagalur Atelier
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Actions & Badge -->
+        <div class="flex items-center space-x-8">
+          <nav class="hidden lg:flex items-center space-x-8 font-sans text-[10px] tracking-widest font-medium uppercase">
+            <a href="#gallery" class="text-[#121212]/60 hover:text-[#121212] transition-colors">[ 01 ] Portfolio</a>
+            <a href="#services" class="text-[#121212]/60 hover:text-[#121212] transition-colors">[ 02 ] Services</a>
+            <a href="#artist" class="text-[#121212]/60 hover:text-[#121212] transition-colors">[ 03 ] Artist</a>
+            <a href="#experience" class="text-[#121212]/60 hover:text-[#121212] transition-colors">[ 04 ] Cleanliness</a>
+            <a href="#contact" class="text-[#121212]/60 hover:text-[#121212] transition-colors">[ 05 ] Bookings</a>
+          </nav>
+
+          <!-- Drawer Action Toggle & Indicator -->
+          <button onclick="toggleDashboard(true)" class="relative p-2.5 bg-[#121212] text-[#FAF9F5] hover:bg-red-600 transition-colors flex items-center space-x-2 rounded-none tracking-widest uppercase text-[10px] font-bold shadow-md cursor-pointer">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-[#C4A482]"></i>
+            <span class="hidden sm:inline">Active Schedule</span>
+            <span id="booking-badge" class="bg-red-600 text-[#FAF9F5] text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Full-screen Immersive Widescreen Hero -->
+    <section id="hero" class="relative min-h-screen bg-[#FAF9F5] text-[#121212] overflow-hidden flex flex-col justify-center pt-24">
+      <div class="absolute inset-y-0 left-0 right-0 pointer-events-none z-0 opacity-10 flex justify-between px-6 md:px-12">
+        <div class="w-[1px] h-full bg-[#121212]" />
+        <div class="w-[1px] h-full bg-[#121212]" />
+        <div class="w-[1px] h-full bg-[#121212]" />
+      </div>
+
+      <div class="max-w-4xl mx-auto px-6 py-12 text-center relative z-10 flex flex-col items-center">
+        <!-- Atelier Latitude Label -->
+        <div class="flex items-center space-x-3 mb-6">
+          <span class="w-2 h-[1px] bg-[#121212]/40" />
+          <span class="font-mono text-[9px] tracking-[0.3em] text-[#121212]/60 uppercase">
+            EST. 2021 &bull; 13.3174° N, 75.7766° E &bull; CHIKMAGALUR
+          </span>
+          <span class="w-2 h-[1px] bg-[#121212]/40" />
+        </div>
+
+        <!-- Endorsement -->
+        <div class="inline-flex items-center space-x-3.5 bg-[#121212]/[0.04] border border-[#121212]/5 px-4.5 py-2 mb-8">
+          <div class="flex items-center space-x-1 text-[#C4A482]">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="w-[1px] h-3.5 bg-[#121212]/15" />
+          <span class="font-sans text-[10px] tracking-[0.18em] uppercase font-bold text-[#121212]">
+            Chikmagalur's #1 Best Rated Tattoo Studio
+          </span>
+        </div>
+
+        <!-- High-end Editorial Heading -->
+        <h1 class="font-display font-light text-5xl md:text-8xl tracking-tight leading-none uppercase text-[#121212] mb-8">
+          Compositional <br />
+          <span class="italic font-serif tracking-normal lowercase text-[#121212]/65 block my-2">intelligence</span>
+          on skin.
+        </h1>
+
+        <!-- Supports Maps directions with pulsating crimson red beacon as requested -->
+        <div class="mb-10 max-w-2xl mx-auto w-full">
+          <a
+            href="https://maps.app.goo.gl/5o5VGzuRU2aBkFht9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block border-2 border-red-600 bg-gradient-to-r from-[#FAF9F5] via-red-50/10 to-[#FAF9F5] shadow-[0_0_25px_rgba(220,38,38,0.25)] hover:shadow-[0_0_35px_rgba(220,38,38,0.45)] hover:bg-neutral-100 p-5 transition-all duration-300 text-left relative"
+            style="animation: pulse 2.5s infinite;"
+          >
+            <!-- Vibrant Crimson Red beacon light in the top-right corner to draw immediate attention -->
+            <div class="absolute top-3 right-3 flex items-center space-x-1.5 bg-red-600 text-white px-2 py-0.5 rounded text-[8px] font-mono tracking-wider font-bold uppercase shadow-sm">
+              <span class="flex h-1.5 w-1.5 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
+              </span>
+              <span>TAP FOR DIRECTIONS</span>
+            </div>
+
+            <!-- Corner accent decorations for luxury feel in crimson red -->
+            <div class="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-red-600" />
+            <div class="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-red-600" />
+            <div class="absolute bottom-0 left-0 w-x.5 h-3.5 border-b-2 border-l-2 border-red-600" />
+            <div class="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-red-600" />
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div class="flex items-start sm:items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center shrink-0 transition-transform duration-300 relative">
+                  <!-- Ring animation -->
+                  <span class="absolute inset-0 rounded-full border border-red-600/40 animate-ping opacity-60" />
+                  <i data-lucide="map-pin" class="w-5.5 h-5.5 text-red-600"></i>
+                </div>
+                <div>
+                  <span class="font-mono text-[9px] tracking-[0.25em] text-red-600 font-bold uppercase block mb-1">
+                    Live Studio Location &bull; MAP CODE: 8QFF+8M Chikkamagaluru
+                  </span>
+                  <p class="font-sans text-[11px] sm:text-xs text-[#121212] leading-relaxed tracking-wide font-semibold">
+                    2nd Floor, Near Sangitha Mobiles, MG Rd, opp. Namma Angadi, Chikkamagaluru, Karnataka - 577101
+                  </p>
+                </div>
+              </div>
+              <div class="shrink-0 ml-auto sm:ml-0 flex items-center text-red-600 font-sans text-[10px] tracking-widest font-extrabold uppercase gap-1 bg-red-600/10 px-2.5 py-1.5 rounded border border-red-600/20">
+                <span>View Map</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Actions panel -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 justify-center w-full max-w-2xl">
+          <a
+            href="#contact"
+            class="bg-[#121212] border border-transparent text-[#FAF9F5] px-8 py-4.5 text-xs uppercase tracking-[0.25em] font-medium hover:bg-transparent hover:border-[#121212] hover:text-[#121212] transition-all duration-300 w-full sm:w-auto inline-flex items-center justify-center gap-3"
+          >
+            <i data-lucide="calendar" class="w-4 h-4 text-[#C4A482]"></i>
+            Book An Appointment &rarr;
+          </a>
+
+          <button
+            onclick="openCallDeskPopup()"
+            class="bg-[#C4A482]/10 border border-[#C4A482]/30 text-[#121212] px-8 py-4.5 text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#C4A482] hover:text-white hover:border-[#C4A482] transition-all duration-300 w-full sm:w-auto inline-flex items-center justify-center gap-3 relative overflow-hidden group cursor-pointer"
+          >
+            <!-- Pulse effect indicator -->
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>Call Artist Desk</span>
+            <i data-lucide="phone" class="w-3.5 h-3.5 text-[#121212]/65 group-hover:text-white"></i>
+          </button>
+        </div>
+
+        <div class="mt-4 text-center">
+          <span class="font-sans text-[10px] tracking-[0.2em] font-bold text-[#121212] uppercase block">
+            strictly appointment only
+          </span>
+          <span class="font-sans text-[9px] tracking-[0.15em] text-[#121212]/50 mt-0.5 uppercase block">
+            Private Boutique Atelier
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Asymmetrical Masonry Portfolio (Matte Black block) -->
+    <section id="gallery" class="bg-[#121212] text-[#FAF9F5] py-28 md:py-36 border-b border-[#FAF9F5]/5">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <p class="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#FAF9F5]/60 mb-4 font-medium">
+              [ 02 &bull; SELECTED WORKS ]
+            </p>
+            <h2 class="font-display font-light text-4xl md:text-6xl tracking-tight uppercase text-[#FAF9F5]">
+              FEATURED PORTFOLIO
+            </h2>
+          </div>
+
+          <!-- Filter Navigation -->
+          <div class="flex flex-wrap gap-2 md:gap-x-8 border-b border-[#FAF9F5]/10 pb-2">
+            <button onclick="filterGallery('all')" id="filter-all" class="filter-tab font-sans text-xs tracking-widest uppercase transition-all duration-300 pb-2 relative outline-none text-[#FAF9F5] font-semibold border-b border-[#FAF9F5]">
+              ALL WORKS
+            </button>
+            <button onclick="filterGallery('fine-line')" id="filter-fine-line" class="filter-tab font-sans text-xs tracking-widest uppercase transition-all duration-300 pb-2 relative outline-none text-[#FAF9F5]/50 hover:text-[#FAF9F5]">
+              FINE-LINE
+            </button>
+            <button onclick="filterGallery('minimalist')" id="filter-minimalist" class="filter-tab font-sans text-xs tracking-widest uppercase transition-all duration-300 pb-2 relative outline-none text-[#FAF9F5]/50 hover:text-[#FAF9F5]">
+              MINIMALIST
+            </button>
+            <button onclick="filterGallery('blackwork')" id="filter-blackwork" class="filter-tab font-sans text-xs tracking-widest uppercase transition-all duration-300 pb-2 relative outline-none text-[#FAF9F5]/50 hover:text-[#FAF9F5]">
+              BLACKWORK
+            </button>
+          </div>
+        </div>
+
+        <!-- Masonry / Grid Gallery -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="gallery-grid">
+          <!-- Item 1 -->
+          <div class="gallery-item-card group relative cursor-pointer flex flex-col justify-between border border-[#FAF9F5]/5 p-4 bg-[#121212] hover:border-[#FAF9F5]/20 transition-all duration-500" data-category="fine-line" onclick="openLightbox('Orchard Botanica', 'fine-line', 'Forearm Anatomy Study', '9cm &times; 4cm', 'src/assets/images/tattoo_gallery_1_1780323083679.png')">
+            <div class="relative overflow-hidden aspect-[3/4] w-full bg-[#1c1c1c] mb-6">
+              <img src="src/assets/images/tattoo_gallery_1_1780323083679.png" alt="Orchard Botanica" class="w-full h-full object-cover grayscale contrast-115 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:brightness-95" />
+              <div class="absolute bottom-4 right-4 bg-[#121212]/75 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#FAF9F5]/20">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-[#FAF9F5]"></i>
+              </div>
+            </div>
+            <div class="flex justify-between items-start pt-2 border-t border-[#FAF9F5]/10">
+              <div>
+                <h3 class="font-display text-sm uppercase tracking-widest text-[#FAF9F5]">Orchard Botanica</h3>
+                <p class="font-sans text-[10px] tracking-wider text-[#FAF9F5]/60 uppercase mt-0.5">Forearm Anatomy Study</p>
+              </div>
+              <div class="text-right">
+                <p class="font-mono text-[10px] tracking-widest text-[#FAF9F5]/85">9cm × 4cm</p>
+                <span class="inline-block text-[9px] tracking-widest text-[#FAF9F5]/40 uppercase bg-[#FAF9F5]/5 px-2 py-0.5 rounded-sm mt-1">fine-line</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="gallery-item-card group relative cursor-pointer flex flex-col justify-between border border-[#FAF9F5]/5 p-4 bg-[#121212] hover:border-[#FAF9F5]/20 transition-all duration-500" data-category="minimalist" onclick="openLightbox('Absolute Alignment', 'minimalist', 'Shoulder Lateral Pivot', '12cm &times; 6cm', 'src/assets/images/tattoo_gallery_2_1780323103510.png')">
+            <div class="relative overflow-hidden aspect-[3/4] w-full bg-[#1c1c1c] mb-6">
+              <img src="src/assets/images/tattoo_gallery_2_1780323103510.png" alt="Absolute Alignment" class="w-full h-full object-cover grayscale contrast-115 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:brightness-95" />
+              <div class="absolute bottom-4 right-4 bg-[#121212]/75 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#FAF9F5]/20">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-[#FAF9F5]"></i>
+              </div>
+            </div>
+            <div class="flex justify-between items-start pt-2 border-t border-[#FAF9F5]/10">
+              <div>
+                <h3 class="font-display text-sm uppercase tracking-widest text-[#FAF9F5]">Absolute Alignment</h3>
+                <p class="font-sans text-[10px] tracking-wider text-[#FAF9F5]/60 uppercase mt-0.5">Shoulder Lateral Pivot</p>
+              </div>
+              <div class="text-right">
+                <p class="font-mono text-[10px] tracking-widest text-[#FAF9F5]/85">12cm × 6cm</p>
+                <span class="inline-block text-[9px] tracking-widest text-[#FAF9F5]/40 uppercase bg-[#FAF9F5]/5 px-2 py-0.5 rounded-sm mt-1">minimalist</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="gallery-item-card group relative cursor-pointer flex flex-col justify-between border border-[#FAF9F5]/5 p-4 bg-[#121212] hover:border-[#FAF9F5]/20 transition-all duration-500" data-category="fine-line" onclick="openLightbox('Constellation Path', 'fine-line', 'Cervical Spine Column', '8cm &times; 8cm', 'src/assets/images/regenerated_image_1780406652733.png')">
+            <div class="relative overflow-hidden aspect-[3/4] w-full bg-[#1c1c1c] mb-6">
+              <img src="src/assets/images/regenerated_image_1780406652733.png" alt="Constellation Path" class="w-full h-full object-cover grayscale contrast-115 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:brightness-95" />
+              <div class="absolute bottom-4 right-4 bg-[#121212]/75 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#FAF9F5]/20">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-[#FAF9F5]"></i>
+              </div>
+            </div>
+            <div class="flex justify-between items-start pt-2 border-t border-[#FAF9F5]/10">
+              <div>
+                <h3 class="font-display text-sm uppercase tracking-widest text-[#FAF9F5]">Constellation Path</h3>
+                <p class="font-sans text-[10px] tracking-wider text-[#FAF9F5]/60 uppercase mt-0.5">Cervical Spine Column</p>
+              </div>
+              <div class="text-right">
+                <p class="font-mono text-[10px] tracking-widest text-[#FAF9F5]/85">8cm × 8cm</p>
+                <span class="inline-block text-[9px] tracking-widest text-[#FAF9F5]/40 uppercase bg-[#FAF9F5]/5 px-2 py-0.5 rounded-sm mt-1">fine-line</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="gallery-item-card group relative cursor-pointer flex flex-col justify-between border border-[#FAF9F5]/5 p-4 bg-[#121212] hover:border-[#FAF9F5]/20 transition-all duration-500" data-category="blackwork" onclick="openLightbox('Void & Silhouette', 'blackwork', 'Cervical Lateral Alignment', '5cm &times; 5cm', 'src/assets/images/neck_geometric_tattoo_1780327220263.png')">
+            <div class="relative overflow-hidden aspect-[3/4] w-full bg-[#1c1c1c] mb-6">
+              <img src="src/assets/images/neck_geometric_tattoo_1780327220263.png" alt="Void & Silhouette" class="w-full h-full object-cover grayscale contrast-115 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:brightness-95" />
+              <div class="absolute bottom-4 right-4 bg-[#121212]/75 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#FAF9F5]/20">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-[#FAF9F5]"></i>
+              </div>
+            </div>
+            <div class="flex justify-between items-start pt-2 border-t border-[#FAF9F5]/10">
+              <div>
+                <h3 class="font-display text-sm uppercase tracking-widest text-[#FAF9F5]">Void & Silhouette</h3>
+                <p class="font-sans text-[10px] tracking-wider text-[#FAF9F5]/60 uppercase mt-0.5">Cervical Lateral Alignment</p>
+              </div>
+              <div class="text-right">
+                <p class="font-mono text-[10px] tracking-widest text-[#FAF9F5]/85">5cm × 5cm</p>
+                <span class="inline-block text-[9px] tracking-widest text-[#FAF9F5]/40 uppercase bg-[#FAF9F5]/5 px-2 py-0.5 rounded-sm mt-1">blackwork</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Specialized Services Offerings Sectionewise -->
+    <section id="services" class="bg-[#FAF9F5] text-[#121212] py-28 md:py-36 border-b border-[#121212]/5 scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+          <div class="max-w-xl">
+            <p class="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#121212]/65 mb-4 font-medium">
+              [ 03 &bull; SPECIALIZED OFFERINGS ]
+            </p>
+            <h2 class="font-display font-light text-4xl md:text-6xl tracking-tight uppercase text-[#121212]">
+              STUDIO SERVICES
+            </h2>
+          </div>
+          <div class="max-w-sm md:text-right">
+            <p class="font-sans text-xs md:text-sm text-[#121212]/75 leading-relaxed font-light">
+              Beyond traditional tattoo illustrations, our studio specializes in high-precision artistic procedures. Every service is governed by strict sanitary protocols and master aesthetics.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+          <!-- PIERCING -->
+          <div class="group flex flex-col justify-between border-2 border-[#121212]/10 hover:border-red-600/30 bg-[#FAF9F5] p-8 md:p-10 transition-all duration-500 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-[3px] bg-[#121212]/5 group-hover:bg-red-600 transition-colors duration-500" />
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 rounded-full border border-[#121212]/10 flex items-center justify-center shrink-0 bg-[#FAF9F5] group-hover:bg-red-600/5 group-hover:border-red-600/30 transition-all duration-500">
+                    <i data-lucide="scissors" class="w-5 h-5 text-[#121212]/80 group-hover:text-red-600 transition-colors"></i>
+                  </div>
+                  <div>
+                    <span class="font-mono text-[9px] tracking-[0.2em] text-[#C4A482] uppercase block font-semibold">Precision Piercing Studio</span>
+                    <h3 class="font-display font-light text-2xl tracking-normal text-[#121212] uppercase mt-0.5">PIERCING</h3>
+                  </div>
+                </div>
+              </div>
+              <p class="font-sans text-xs text-[#121212]/75 leading-relaxed font-light mb-8 max-w-lg">
+                Expert skeletal-anatomical styling and placement using ultra-hygienic tools and custom solid titanium/gold placement jewelry.
+              </p>
+              <div class="space-y-6 pt-6 border-t border-[#121212]/10">
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>GUNSHOT
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Standard rapid mechanical lobe piercing with sterile-sealed cartridges, safe, rapid, and low-discomfort with precise alignment.
+                  </p>
+                </div>
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>NEEDLE
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Elite freehand cannula needle piercing. Tailored specifically for delicate cartilaginous and complex flesh placements with minimal cellular trauma.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 pt-6 flex justify-between items-center text-[9px] tracking-[0.25em] text-[#121212]/40 uppercase font-mono border-t border-dashed border-[#121212]/10">
+              <span>Elite Grade</span>
+              <span class="group-hover:text-red-600 font-bold transition-colors">Select Options</span>
+            </div>
+          </div>
+
+          <!-- PERMANENT MAKEUP -->
+          <div class="group flex flex-col justify-between border-2 border-[#121212]/10 hover:border-red-600/30 bg-[#FAF9F5] p-8 md:p-10 transition-all duration-500 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-[3px] bg-[#121212]/5 group-hover:bg-red-600 transition-colors duration-500" />
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 rounded-full border border-[#121212]/10 flex items-center justify-center shrink-0 bg-[#FAF9F5] group-hover:bg-red-600/5 group-hover:border-red-600/30 transition-all duration-500">
+                    <i data-lucide="droplet" class="w-5 h-5 text-[#121212]/80 group-hover:text-red-600 transition-colors"></i>
+                  </div>
+                  <div>
+                    <span class="font-mono text-[9px] tracking-[0.2em] text-[#C4A482] uppercase block font-semibold">Aesthetic Cosmetic Micro-Pigmentation</span>
+                    <h3 class="font-display font-light text-2xl tracking-normal text-[#121212] uppercase mt-0.5">PERMANENT MAKEUP</h3>
+                  </div>
+                </div>
+              </div>
+              <p class="font-sans text-xs text-[#121212]/75 leading-relaxed font-light mb-8 max-w-lg">
+                Subtle dermal facial pigmentation that replaces traditional daily cosmetic products with organic, long-lasting contouring.
+              </p>
+              <div class="space-y-6 pt-6 border-t border-[#121212]/10">
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>LIP CORRECTION
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Corrective tonal symmetry adjustment to reshape, balance uneven borders, and restore natural youthful proportions of the lips.
+                  </p>
+                </div>
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>LIP COLOUR
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Full-surface custom pigment infusion ranging from delicate nude tones to sophisticated natural matte reds that never smudge.
+                  </p>
+                </div>
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>LIP BLUSH
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Ultra-thin, air-soft pixel misting to deliver a sheer wash of color, enhancing thickness, hydration aesthetic, and soft visual volume.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 pt-6 flex justify-between items-center text-[9px] tracking-[0.25em] text-[#121212]/40 uppercase font-mono border-t border-dashed border-[#121212]/10">
+              <span>Elite Grade</span>
+              <span class="group-hover:text-red-600 font-bold transition-colors">Select Options</span>
+            </div>
+          </div>
+
+          <!-- MICRO BLADING -->
+          <div class="group flex flex-col justify-between border-2 border-[#121212]/10 hover:border-red-600/30 bg-[#FAF9F5] p-8 md:p-10 transition-all duration-500 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-[3px] bg-[#121212]/5 group-hover:bg-red-600 transition-colors duration-500" />
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 rounded-full border border-[#121212]/10 flex items-center justify-center shrink-0 bg-[#FAF9F5] group-hover:bg-red-600/5 group-hover:border-red-600/30 transition-all duration-500">
+                    <i data-lucide="eye" class="w-5 h-5 text-[#121212]/80 group-hover:text-red-600 transition-colors"></i>
+                  </div>
+                  <div>
+                    <span class="font-mono text-[9px] tracking-[0.2em] text-[#C4A482] uppercase block font-semibold">Premium Eyebrow Reconstruction</span>
+                    <h3 class="font-display font-light text-2xl tracking-normal text-[#121212] uppercase mt-0.5">MICRO BLADING</h3>
+                  </div>
+                </div>
+              </div>
+              <p class="font-sans text-xs text-[#121212]/75 leading-relaxed font-light mb-8 max-w-lg">
+                Meticulous dermal hair-strokes and soft gradient shadow mapping designed around your specific facial bone structure.
+              </p>
+              <div class="space-y-6 pt-6 border-t border-[#121212]/10">
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>EYE BROW CORRECTION
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Rescue and alignment redesign of compromised, asymmetrical, or faded prior eyebrow procedures to restore gorgeous framing.
+                  </p>
+                </div>
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>POWDER AND OMBRE
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Precision machine shading blending from a soft light front to a denser pixel tail, creating a natural makeup-powder finish.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 pt-6 flex justify-between items-center text-[9px] tracking-[0.25em] text-[#121212]/40 uppercase font-mono border-t border-dashed border-[#121212]/10">
+              <span>Elite Grade</span>
+              <span class="group-hover:text-red-600 font-bold transition-colors">Select Options</span>
+            </div>
+          </div>
+
+          <!-- SCALP -->
+          <div class="group flex flex-col justify-between border-2 border-[#121212]/10 hover:border-red-600/30 bg-[#FAF9F5] p-8 md:p-10 transition-all duration-500 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-[3px] bg-[#121212]/5 group-hover:bg-red-600 transition-colors duration-500" />
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 rounded-full border border-[#121212]/10 flex items-center justify-center shrink-0 bg-[#FAF9F5] group-hover:bg-red-600/5 group-hover:border-red-600/30 transition-all duration-500">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-[#121212]/80 group-hover:text-red-600 transition-colors"></i>
+                  </div>
+                  <div>
+                    <span class="font-mono text-[9px] tracking-[0.2em] text-[#C4A482] uppercase block font-semibold">Scalp Micro-Pigmentation (SMP)</span>
+                    <h3 class="font-display font-light text-2xl tracking-normal text-[#121212] uppercase mt-0.5">SCALP</h3>
+                  </div>
+                </div>
+              </div>
+              <p class="font-sans text-xs text-[#121212]/75 leading-relaxed font-light mb-8 max-w-lg">
+                Non-surgical hair follicle replication mimicking the exact shade, size, and depth of your natural active hair stubble.
+              </p>
+              <div class="space-y-6 pt-6 border-t border-[#121212]/10">
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>MICRO PIGMENTATION
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Targeted regional scalp density density shading to conceal thinning crown patterns, parting gaps, and visible hair transplant scars.
+                  </p>
+                </div>
+                <div class="flex flex-col pl-4 border-l-2 border-[#121212]/20 hover:border-red-600 transition-colors duration-300">
+                  <h4 class="font-sans font-bold text-xs tracking-wider uppercase text-[#121212] flex items-center gap-2">
+                    <span class="w-1 h-1 bg-red-600 rounded-full inline-block"></span>SCALP TREATMENT
+                  </h4>
+                  <p class="font-sans text-[11px] text-[#121212]/70 leading-relaxed font-light mt-1.5">
+                    Complete full-scalp hairline simulation and hairline restoration mapping to restore the youthful frame of your face.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 pt-6 flex justify-between items-center text-[9px] tracking-[0.25em] text-[#121212]/40 uppercase font-mono border-t border-dashed border-[#121212]/10">
+              <span>Elite Grade</span>
+              <span class="group-hover:text-red-600 font-bold transition-colors">Select Options</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Artist Portrait Frame & 15+ Years Experience Highlights Badge -->
+    <section id="artist" class="bg-[#FAF9F5] text-[#121212] py-28 md:py-36 border-b border-[#121212]/5">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+          
+          <!-- Editorial Bio and philosophy -->
+          <div class="lg:col-span-7 flex flex-col space-y-8 order-2 lg:order-1">
+            <div>
+              <p class="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#121212]/60 mb-4 font-medium">
+                [ 04 &bull; THE ARTIST ]
+              </p>
+              <h2 class="font-display font-light text-4xl md:text-6xl tracking-tight leading-none uppercase text-[#121212]">
+                SHRIDHAR
+              </h2>
+              <p class="font-sans text-xs tracking-widest text-[#121212]/60 uppercase mt-1">
+                Founder, Principal Artist &bull; 15+ Years Elite Experience
+              </p>
+            </div>
+
+            <div class="h-[1px] bg-[#121212]/10 w-24" />
+
+            <div class="space-y-6">
+              <h3 class="font-display font-medium text-lg md:text-xl tracking-tight text-[#121212] uppercase leading-relaxed">
+                "THE BODY IS NOT AN EMPTY CANVAS. IT HAS ALREADY BEEN SCULPTED BY LIFE, FLOW, AND TENSION. MY JOB IS TO BEAUTIFULLY CAPTURE THOSE CONTOURS."
+              </h3>
+              <p class="font-sans text-sm md:text-base leading-relaxed text-[#121212]/70 font-light">
+                Classically trained in fine illustration and anatomical layout, Shridhar transitioned into the skin medium to provide disciplined, architectural scale blackwork. He believes that every line must have weight, balance, and fine-line spatial awareness relative to real bodily anchors.
+              </p>
+              <p class="font-sans text-sm md:text-base leading-relaxed text-[#121212]/70 font-light">
+                As the leading force behind mist Tattoos, Shridhar has refined custom single-needle mechanics and dense black ink formulations to create works that remain crisp and retain their details over a lifetime. His premium approach guarantees that every custom layout is crafted collaboratively with absolute attention.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-[#121212]/10">
+              <div>
+                <h4 class="font-display font-semibold text-xs tracking-wider uppercase mb-1">I. GEOMETRIC INTEGRITY</h4>
+                <p class="font-sans text-xs text-[#121212]/60 font-light">
+                  Aligning thin lines and complex shapes with skeletal and posture lines for dynamic symmetry.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-display font-semibold text-xs tracking-wider uppercase mb-1">II. ORGANIC BALANCE</h4>
+                <p class="font-sans text-xs text-[#121212]/60 font-light">
+                  Utilizing optimal empty space and visual silence to let the anatomical ink breathe beautifully.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <a href="#gallery" class="inline-flex items-center space-x-2 border border-[#121212] bg-[#121212] text-[#FAF9F5] px-6 py-3.5 text-xs uppercase tracking-widest hover:bg-transparent hover:text-[#121212] transition-colors duration-300 font-sans font-medium">
+                <span>Explore Shridhar's Portfolio</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Professional Editorial Portrait with experience highlighted -->
+          <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center relative">
+            <div class="relative w-full max-w-sm aspect-[3/4] border-2 border-red-600 p-4 bg-[#FAF9F5] shadow-[0_0_30px_rgba(220,38,38,0.15)] hover:shadow-[0_0_40px_rgba(220,38,38,0.3)] transition-all duration-500">
+              
+              <!-- Highlight experience badge overlaying the frame -->
+              <div class="absolute -top-5 -left-5 bg-red-600 text-[#FAF9F5] py-3 px-5 shadow-[0_0_25px_rgba(220,38,38,0.5)] z-20 flex flex-col items-center justify-center border border-red-500" style="animation: pulse 2s infinite;">
+                <span class="font-mono text-[8px] tracking-[0.2em] uppercase font-bold text-red-200">EXPERIENCE</span>
+                <span class="font-display font-black text-3xl tracking-tight leading-none mt-1 text-white text-center">15+ YRS</span>
+                <span class="font-sans text-[7px] tracking-[0.1em] uppercase font-extrabold text-red-100 mt-1 text-center">MASTER INKED</span>
+              </div>
+
+              <!-- Pulsing beacon next to the badge -->
+              <div class="absolute top-2 right-2 flex items-center space-x-1.5 bg-red-600 text-white px-2 py-0.5 rounded text-[8px] font-mono tracking-wider font-bold uppercase shadow-md z-10">
+                <span class="flex h-1.5 w-1.5 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
+                </span>
+                <span>ELITE ARTIST</span>
+              </div>
+
+              <div class="w-full h-full bg-[#121212] overflow-hidden relative border border-[#121212]/10">
+                <img
+                  src="src/assets/images/shridhar_tattooing_buddha_1780326217358.png"
+                  alt="Shridhar - Tattoo Artist"
+                  class="w-full h-full object-cover contrast-[1.05] brightness-100 transition-transform duration-700 hover:scale-102"
+                />
+              </div>
+              <div class="absolute right-8 bottom-8 bg-[#FAF9F5] text-[#121212] border border-[#121212] px-4 py-2 font-mono text-[9px] tracking-widest uppercase z-10">
+                RECORDED &copy; 2026/06
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Studio Cleanliness & Standards (Matte Black block) -->
+    <section id="experience" class="bg-[#121212] text-[#FAF9F5] py-28 md:py-36 border-b border-[#FAF9F5]/5">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="mb-16">
+          <p class="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#FAF9F5]/60 mb-4 font-medium">
+            [ 05 &bull; STUDIO STANDARDS ]
+          </p>
+          <h2 class="font-display font-light text-4xl md:text-6xl tracking-tight uppercase text-[#FAF9F5]">
+            THE EXPERIENCE
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+          <div class="lg:col-span-7 space-y-10">
+            <p class="font-sans text-sm md:text-base leading-relaxed text-[#FAF9F5]/80 font-light max-w-xl pb-4">
+              We understand that tattooing is a medical procedure as much as it is an artistic practice. We have designed "mist Tattoos" to operate with absolute clinical sterility, without losing the warmth of an elite personal salon.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="flex flex-col space-y-3 p-6 border border-[#FAF9F5]/10 hover:border-[#FAF9F5]/20 transition-colors bg-[#161616]">
+                <div class="flex items-center space-x-3 text-[#FAF9F5]">
+                  <i data-lucide="shield-check" class="w-5 h-5 text-[#FAF9F5]/85"></i>
+                  <h4 class="font-display font-bold text-xs tracking-wider uppercase">STERILE LABORATORY SPEC</h4>
+                </div>
+                <p class="font-sans text-xs text-[#FAF9F5]/70 leading-relaxed font-light">
+                  Our private suite is structured as a class-A sterile room. All skin preparation occurs under unidirectional surgical airflow using medical-grade surface disinfectants between sessions.
+                </p>
+              </div>
+
+              <div class="flex flex-col space-y-3 p-6 border border-[#FAF9F5]/10 hover:border-[#FAF9F5]/20 transition-colors bg-[#161616]">
+                <div class="flex items-center space-x-3 text-[#FAF9F5]">
+                  <i data-lucide="sparkles" class="w-5 h-5 text-[#FAF9F5]/85"></i>
+                  <h4 class="font-display font-bold text-xs tracking-wider uppercase">PRECISE HARDWARE INTERACTION</h4>
+                </div>
+                <p class="font-sans text-xs text-[#FAF9F5]/70 leading-relaxed font-light">
+                  Every single needle is certified surgical-grade 316L stainless steel, custom-tapered, and unsealed immediately before tattooing in front of the client. Machines are insulated with medical-grade barriers.
+                </p>
+              </div>
+
+              <div class="flex flex-col space-y-3 p-6 border border-[#FAF9F5]/10 hover:border-[#FAF9F5]/20 transition-colors bg-[#161616]">
+                <div class="flex items-center space-x-3 text-[#FAF9F5]">
+                  <i data-lucide="heart-handshake" class="w-5 h-5 text-[#FAF9F5]/85"></i>
+                  <h4 class="font-display font-bold text-xs tracking-wider uppercase">VEGAN PRESERVATION MEDIA</h4>
+                </div>
+                <p class="font-sans text-xs text-[#FAF9F5]/70 leading-relaxed font-light">
+                  We operate exclusively with premium, REACH-compliant organic and vegan pigments. Free from heavy metals, synthetic chemicals, or binding agents, guaranteeing longevity and flawless healing integrity.
+                </p>
+              </div>
+
+              <div class="flex flex-col space-y-3 p-6 border border-[#FAF9F5]/10 hover:border-[#FAF9F5]/20 transition-colors bg-[#161616]">
+                <div class="flex items-center space-x-3 text-[#FAF9F5]">
+                  <i data-lucide="eye" class="w-5 h-5 text-[#FAF9F5]/85"></i>
+                  <h4 class="font-display font-bold text-xs tracking-wider uppercase">CRAFTED ERGONOMIC COMFORT</h4>
+                </div>
+                <p class="font-sans text-xs text-[#FAF9F5]/70 leading-relaxed font-light">
+                  Equipped with custom memory-foam anatomical resting chairs and atmospheric sound treatment, ensuring your nervous system remains perfectly calm throughout hours of meticulous blackwork.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 w-full flex flex-col space-y-4">
+            <div class="relative border border-[#FAF9F5]/15 bg-[#121212] p-4 aspect-[4/3] w-full overflow-hidden">
+              <img src="src/assets/images/studio_detail_1780323129102.png" alt="mist Tattoos sanitization" class="w-full h-full object-cover grayscale contrast-110 brightness-95" />
+            </div>
+            <div class="flex justify-between items-center text-[10px] tracking-widest text-[#FAF9F5]/40 uppercase font-mono px-1">
+              <span>EST. &copy; 2026 Atelier Code</span>
+              <span>Class-A Sterile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Client Reviews Grid (Off-white canvas) -->
+    <section id="testimonials" class="bg-[#FAF9F5] text-[#121212] py-28 md:py-36 border-b border-[#121212]/5">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="mb-16">
+          <p class="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#121212]/60 mb-4 font-medium">
+            [ 05 &bull; CLIENT RECORDS ]
+          </p>
+          <h2 class="font-display font-light text-4xl md:text-6xl tracking-tight uppercase text-[#121212]">
+            CLIENT COLLECTIVE
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <!-- Quote 1 -->
+          <div class="flex flex-col justify-between border border-[#121212]/10 p-8 min-h-[340px] bg-[#FAF9F5] hover:border-[#121212]/30 transition-colors duration-300">
+            <div>
+              <div class="flex gap-1 mb-6 text-amber-500">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="font-sans text-sm md:text-base leading-relaxed text-[#121212]/80 font-light italic mb-8">
+                "Worth every paisa,u will never find a better tattoo artist than this place,i repeat u won't,just go and get inked,one of the best portraits art u can only see in mist,not chikmagalur,but i can say this the most affordable yet the best place ..."
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#121212]/10">
+              <h4 class="font-display font-bold text-xs tracking-widest uppercase">VISHWAJITH KUMAR</h4>
+              <p class="font-sans text-[9px] tracking-widest text-[#121212]/50 uppercase mt-1">VERIFIED GOOGLE REVIEW</p>
+            </div>
+          </div>
+
+          <!-- Quote 2 -->
+          <div class="flex flex-col justify-between border border-[#121212]/10 p-8 min-h-[340px] bg-[#FAF9F5] hover:border-[#121212]/30 transition-colors duration-300">
+            <div>
+              <div class="flex gap-1 mb-6 text-amber-500">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="font-sans text-sm md:text-base leading-relaxed text-[#121212]/80 font-light italic mb-8">
+                "Am very well pleased,,entirely happy...for diz magnificent band tattoo ..spectacular tattooist n a good communication it made me feel much comfort...Too Clean n tidy n hygiene shop ...one f d best tattooist shop in chikmanglore...thank you so much fo diz fab tattoo 😊 Big thanks to MIST ...😊"
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#121212]/10">
+              <h4 class="font-display font-bold text-xs tracking-widest uppercase">NAYANA MADHU D K</h4>
+              <p class="font-sans text-[9px] tracking-widest text-[#121212]/50 uppercase mt-1">VERIFIED GOOGLE REVIEW</p>
+            </div>
+          </div>
+
+          <!-- Quote 3 -->
+          <div class="flex flex-col justify-between border border-[#121212]/10 p-8 min-h-[340px] bg-[#FAF9F5] hover:border-[#121212]/30 transition-colors duration-300">
+            <div>
+              <div class="flex gap-1 mb-6 text-amber-500">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="font-sans text-sm md:text-base leading-relaxed text-[#121212]/80 font-light italic mb-8">
+                "Got our first matching tattoo, must say one of the best place with, hygienic & professional work ❤️ Happy with there work 😊 ..."
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#121212]/10">
+              <h4 class="font-display font-bold text-xs tracking-widest uppercase">KAMPANA GOWDA</h4>
+              <p class="font-sans text-[9px] tracking-widest text-[#121212]/50 uppercase mt-1">LOCAL GUIDE &bull; GOOGLE REVIEW</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Booking Center & Interactive Scheduling Form -->
+    <section id="contact" class="bg-[#121212] text-[#FAF9F5] py-28 md:py-36 border-b border-[#FAF9F5]/5">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="mb-16">
+          <p class="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#FAF9F5]/60 mb-4 font-medium">
+            [ 06 &bull; DIGITAL PORTAL ]
+          </p>
+          <h2 class="font-display font-light text-4xl md:text-6xl tracking-tight uppercase text-[#FAF9F5]">
+            BOOKING &amp; LOCATION
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 xl:gap-24 items-start">
+          <div class="lg:col-span-5 space-y-10">
+            <div class="space-y-4">
+              <h3 class="font-display font-light text-2xl tracking-wide uppercase text-[#FAF9F5]">
+                THE ATELIER AT CHIKMAGALUR
+              </h3>
+              <p class="font-sans text-xs md:text-sm text-[#FAF9F5]/70 leading-relaxed font-light">
+                Our workshop functions exclusively on a private, pre-arranged basis. We do not permit walk-in viewings to maintain absolute sterile parameters and creative solitude for the actively inked client.
+              </p>
+            </div>
+
+            <div class="space-y-6 pt-6 border-t border-[#FAF9F5]/10">
+              <div class="flex items-start space-x-4">
+                <i data-lucide="map-pin" class="w-5 h-5 text-[#FAF9F5]/80 mt-1 shrink-0"></i>
+                <div>
+                  <h4 class="font-display font-bold text-xs tracking-wider uppercase mb-1">ATELIER COORDINATES</h4>
+                  <p class="font-sans text-xs text-[#FAF9F5]/70 leading-relaxed font-light">
+                    2nd Floor, Near Sangitha Mobiles, MG Rd,<br />opp. Namma Angadi, Chikkamagaluru,<br />Karnataka - 577101
+                  </p>
+                  <p class="font-mono text-[10px] text-[#FAF9F5]/40 uppercase mt-1">MAP CODE: 8QFF+8M Chikkamagaluru</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <i data-lucide="phone" class="w-5 h-5 text-[#FAF9F5]/80 mt-1 shrink-0"></i>
+                <div>
+                  <h4 class="font-display font-bold text-xs tracking-wider uppercase mb-1">DIRECT VOICE LINK</h4>
+                  <a href="tel:+918431136665" class="font-mono text-sm text-[#FAF9F5]/80 hover:text-[#FAF9F5] hover:underline">
+                    +91 84311 36665
+                  </a>
+                  <p class="font-sans text-[10px] text-[#FAF9F5]/40 uppercase mt-0.5">Monday to Saturday, 10:00 — 19:00 IST</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <i data-lucide="message-square" class="w-5 h-5 text-[#FAF9F5]/80 mt-1 shrink-0"></i>
+                <div>
+                  <h4 class="font-display font-bold text-xs tracking-wider uppercase mb-1">INSTANT CHAT INTERACTION</h4>
+                  <p class="font-sans text-xs text-[#FAF9F5]/70 leading-relaxed font-light mb-3">
+                    Connect organically with Shridhar and our studio coordinators via encrypted WhatsApp.
+                  </p>
+                  <button onclick="triggerWhatsApp()" class="flex items-center space-x-2 border border-[#FAF9F5] px-5 py-2.5 text-[10px] uppercase tracking-widest hover:bg-[#FAF9F5] hover:text-[#121212] transition-colors duration-300 font-sans font-medium">
+                    <span>Connect on WhatsApp</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grayscale interactive navigation map -->
+            <div class="pt-6 border-t border-[#FAF9F5]/10 space-y-3">
+              <h4 class="font-display font-bold text-xs tracking-wider uppercase">SITE NAVIGATION MAP</h4>
+              <div class="relative border border-[#FAF9F5]/15 h-56 w-full overflow-hidden bg-[#161616]">
+                <iframe
+                  title="mist Tattoos Map Location"
+                  src="https://maps.google.com/maps?q=8QFF%2B8M%20Chikkamagaluru%20Karnataka&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                  class="w-full h-full border-0 grayscale brightness-[0.35] invert contrast-[1.4] transition-all duration-700 hover:brightness-[0.4] hover:contrast-[1.25]"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+                <a href="https://maps.app.goo.gl/5o5VGzuRU2aBkFht9" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/20 px-3 py-1 font-mono text-[9px] tracking-widest uppercase hover:bg-[#FAF9F5] hover:text-[#121212] transition-all">
+                  OPEN GOOGLE MAPS
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scheduling Form with simulation state persistence in LocalStorage -->
+          <div class="lg:col-span-7 bg-[#151515] border border-[#FAF9F5]/10 p-8 md:p-10">
+            <h3 class="font-display font-light text-xl tracking-wider uppercase mb-8 pb-4 border-b border-[#FAF9F5]/10 text-[#FAF9F5]">
+              CONSULTATION PROPOSAL
+            </h3>
+
+            <div id="booking-success-message" class="hidden flex flex-col items-center justify-center py-16 text-center space-y-6">
+              <div class="w-12 h-12 bg-[#FAF9F5] rounded-full flex items-center justify-center text-[#121212] border border-[#FAF9F5]">
+                <i data-lucide="check" class="w-6 h-6 stroke-[2.5]"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-medium text-lg uppercase tracking-wider text-[#FAF9F5]">PROPOSAL RECORDED</h4>
+                <p class="font-sans text-xs text-[#FAF9F5]/70 max-w-sm mx-auto leading-relaxed font-light mt-2">
+                  Your consultation details have been secured. If you open the Schedule Dashboard in the floating header, you can review your active schedule.
+                </p>
+              </div>
+              <button onclick="resetBookingForm()" class="border border-[#FAF9F5]/50 px-6 py-2.5 text-[10px] uppercase tracking-widest text-[#FAF9F5] hover:border--[#FAF9F5] transition-colors">
+                Submit Another Request
+              </button>
+            </div>
+
+            <form id="appointment-form" onsubmit="handleFormSubmission(event)" class="space-y-6">
+              <div id="form-error-msg" class="hidden flex items-center space-x-3 border border-red-900 bg-[#1e1414] p-4 text-xs font-sans text-[#FAF9F5] tracking-wider uppercase font-semibold">
+                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                <span id="error-text">ALL PRIMARY STATE CHARACTERISTICS REQUIRED.</span>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Name -->
+                <div class="flex flex-col space-y-2">
+                  <label class="font-sans text-[9px] tracking-widest uppercase text-[#FAF9F5]/50 font-bold">FULL CANVAS NAME *</label>
+                  <input type="text" id="form-name" placeholder="e.g. Clara Vance" class="bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/20 px-4 py-3 text-xs tracking-wider outline-none focus:border-[#FAF9F5] transition-colors placeholder:text-[#FAF9F5]/25" required />
+                </div>
+                <!-- Email -->
+                <div class="flex flex-col space-y-2">
+                  <label class="font-sans text-[9px] tracking-widest uppercase text-[#FAF9F5]/50 font-bold">EMAIL ADDRESS *</label>
+                  <input type="email" id="form-email" placeholder="e.g. vance@architectur.ch" class="bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/20 px-4 py-3 text-xs tracking-wider outline-none focus:border-[#FAF9F5] transition-colors placeholder:text-[#FAF9F5]/25" required />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Phone -->
+                <div class="flex flex-col space-y-2">
+                  <label class="font-sans text-[9px] tracking-widest uppercase text-[#FAF9F5]/50 font-bold">MOBILE LINK *</label>
+                  <input type="tel" id="form-phone" placeholder="e.g. +91 84311 36665" class="bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/20 px-4 py-3 text-xs tracking-wider outline-none focus:border-[#FAF9F5] transition-colors placeholder:text-[#FAF9F5]/25" required />
+                </div>
+                <!-- Artist Option -->
+                <div class="flex flex-col space-y-2">
+                  <label class="font-sans text-[9px] tracking-widest uppercase text-[#FAF9F5]/50 font-bold">ARTIST PREFERENCE</label>
+                  <select id="form-artist" class="bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/20 px-4 py-3 text-xs tracking-wider outline-none focus:border-[#FAF9F5] transition-colors cursor-pointer">
+                    <option value="Shridhar">Shridhar (Founder &bull; Geometric Line)</option>
+                    <option value="Private Guest">Atelier Guest Residencies (Blackwork)</option>
+                    <option value="Collaboration">Joint Study Studio Collaboration</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Preferred Date -->
+                <div class="flex flex-col space-y-2">
+                  <label class="font-sans text-[9px] tracking-widest uppercase text-[#FAF9F5]/50 font-bold">PREFERRED DATE *</label>
+                  <input type="date" id="form-date" class="bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/20 px-4 py-3 text-xs tracking-wider outline-none focus:border-[#FAF9F5] transition-colors cursor-pointer" required />
+                </div>
+                <!-- Preferred Time Slot -->
+                <div class="flex flex-col space-y-2">
+                  <label class="font-sans text-[9px] tracking-widest uppercase text-[#FAF9F5]/50 font-bold">TEMPORAL FRAME SLOT *</label>
+                  <select id="form-time" class="bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/20 px-4 py-3 text-xs tracking-wider outline-none focus:border-[#FAF9F5] transition-colors cursor-pointer" required>
+                    <option value="">Choosing Slot...</option>
+                    <option value="10:00 - 11:30">Morning Pivot (10:00 &mdash; 11:30)</option>
+                    <option value="13:30 - 15:00">Mid-Day Study (13:30 &mdash; 15:00)</option>
+                    <option value="16:00 - 17:30">Twilight Convergence (16:00 &mdash; 17:30)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Project Description -->
+              <div class="flex flex-col space-y-2">
+                <label class="font-sans text-[9px] tracking-widest uppercase text-[#FAF9F5]/50 font-bold">PROJECT DESCRIPTION *</label>
+                <textarea id="form-desc" placeholder="Outline your layout idea, general physical location on body, approximate scale (cm), and narrative background." rows="4" class="bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/20 px-4 py-3 text-xs tracking-wider outline-none focus:border-[#FAF9F5] transition-colors placeholder:text-[#FAF9F5]/25 resize-none leading-relaxed" required></textarea>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="flex items-center space-x-3 pt-2">
+                <input type="checkbox" id="form-whatsapp" checked class="w-4 h-4 bg-[#121212] border border-[#FAF9F5]/20 text-[#121212] rounded cursor-pointer" />
+                <label for="form-whatsapp" class="font-sans text-[10px] tracking-wider uppercase text-[#FAF9F5]/60 cursor-pointer select-none">
+                  Synchronize with secure voice & WhatsApp communication line
+                </label>
+              </div>
+
+              <div class="pt-4">
+                <button type="submit" class="w-full flex items-center justify-center space-x-2 border border-[#FAF9F5] py-4 text-xs uppercase tracking-[0.25em] bg-[#FAF9F5] text-[#121212] hover:bg-transparent hover:text-[#FAF9F5] transition-colors duration-500 font-sans cursor-pointer font-bold">
+                  TRANSMIT PROPOSAL
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Standalone Luxury Footer Frame -->
+    <footer class="bg-[#121212] text-[#FAF9F5] border-t border-[#FAF9F5]/5 py-20 font-mono">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 text-[10px] tracking-widest uppercase text-[#FAF9F5]/50">
+        <div class="flex flex-col items-center md:items-start text-center md:text-left gap-1">
+          <span class="text-[#FAF9F5] font-bold">MIST TATTOOS ATELIER</span>
+          <span>&copy; 2026/06 ALL RIGHTS RESERVED</span>
+        </div>
+        <div class="flex flex-wrap gap-6 justify-center">
+          <a href="#gallery" class="hover:text-[#FAF9F5]">Portfolio</a>
+          <a href="#services" class="hover:text-[#FAF9F5]">Offerings</a>
+          <a href="#artist" class="hover:text-[#FAF9F5]">Shridhar Portfolio</a>
+          <a href="tel:+918431136665" class="hover:text-[#FAF9F5]">Enquire Direct</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 10. Slide-out Client Action Dashboard Panel -->
+    <div id="dashboard-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-[#FAF9F5] text-[#121212] border-l-2 border-[#121212] shadow-2xl z-50 transform translate-x-full transition-transform duration-500 flex flex-col">
+      <div class="p-6 border-b border-[#121212]/10 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="calendar" class="w-5 h-5 text-[#C4A482]"></i>
+          <h3 class="font-display font-bold text-sm tracking-widest uppercase">Client Schedule Profile</h3>
+        </div>
+        <button onclick="toggleDashboard(false)" class="p-1 hover:bg-neutral-200 rounded-full transition-colors">
+          <i data-lucide="x" class="w-5 h-5 text-[#121212]"></i>
+        </button>
+      </div>
+
+      <!-- Bookings Content -->
+      <div id="booking-list" class="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
+        <!-- Live rendered list inserts here dynamically -->
+        <p class="text-xs text-[#121212]/50 italic text-center font-serif">No active bookings scheduled in local index.</p>
+      </div>
+
+      <div class="p-6 border-t border-[#121212]/10 bg-[#FAF9F5]">
+        <button onclick="toggleDashboard(false)" class="w-full text-center py-3.5 bg-[#121212] text-[#FAF9F5] font-bold text-xs tracking-widest uppercase hover:bg-red-600 transition-colors">
+          Close Slate Dashboard
+        </button>
+      </div>
+    </div>
+
+    <!-- 11. Custom Floating Social Interaction Badges -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
+      <!-- WhatsApp float -->
+      <a href="https://wa.me/918431136665" target="_blank" class="w-12 h-12 rounded-full bg-[#121212] text-[#FAF9F5] flex items-center justify-center shadow-xl border border-[#FAF9F5]/25 hover:bg-emerald-600 transition-colors">
+        <i data-lucide="message-square" class="w-5 h-5"></i>
+      </a>
+
+      <!-- Insta link float -->
+      <a href="https://instagram.com/mist_tattoos" target="_blank" class="w-12 h-12 rounded-full bg-[#121212] text-[#FAF9F5] flex items-center justify-center shadow-xl border border-[#FAF9F5]/25 hover:bg-[#C4A482] transition-colors">
+        <i data-lucide="instagram" class="w-5 h-5"></i>
+      </a>
+    </div>
+
+    <!-- 12. Best Tattoos Curation Month Popup -->
+    <div id="best-tattoos-curation" class="fixed bottom-6 left-6 z-40 hidden sm:block">
+      <button onclick="openTattoosPopup()" class="flex items-center space-x-3 bg-[#121212]/95 text-[#FAF9F5] border border-[#C4A482]/40 hover:border-[#C4A482] p-2.5 pr-4 shadow-xl rounded-full transition-all duration-300 group">
+        <div class="relative w-10 h-10 rounded-full overflow-hidden border border-[#C4A482]/20 shrink-0">
+          <img src="src/assets/images/regenerated_image_1780406758726.jpg" alt="Featured Curation" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-[#121212]/20" />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <i data-lucide="sparkles" class="w-4 h-4 text-[#C4A482] animate-bounce"></i>
+          </div>
+        </div>
+        <div class="text-left">
+          <span class="block font-mono text-[8px] tracking-[0.25em] text-[#C4A482] font-semibold uppercase leading-none mb-0.5">May Curation</span>
+          <span class="block font-sans text-[10px] font-bold uppercase tracking-wider text-[#FAF9F5] group-hover:text-[#C4A482] transition-colors leading-none">Best Tattoos of Month</span>
+        </div>
+      </button>
+      <span class="absolute -inset-0.5 rounded-full border border-[#C4A482]/30 animate-ping -z-10 pointer-events-none" />
+    </div>
+
+    <!-- Interactive Curation Slider PopupModal -->
+    <div id="tattoos-modal" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:justify-start p-4 sm:p-6 lg:p-10 hidden">
+      <div onclick="closeTattoosPopup()" class="absolute inset-0 bg-[#111111]/40 backdrop-blur-xs"></div>
+      <div class="bg-[#FAF9F5] text-[#121212] border-2 border-[#121212] shadow-2xl relative z-10 w-full max-w-sm sm:max-w-md p-5 sm:p-6 overflow-hidden flex flex-col">
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-[#121212]/10">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="award" class="w-4 h-4 text-[#C4A482]"></i>
+            <h4 class="font-display font-bold text-xs uppercase tracking-[0.2em]">Best Tattoos of the Month</h4>
+          </div>
+          <button onclick="closeTattoosPopup()" class="text-[#121212]/40 hover:text-[#121212] p-1"><i data-lucide="x" class="w-4.5 h-4.5"></i></button>
+        </div>
+
+        <!-- Slider core -->
+        <div class="relative overflow-hidden bg-black aspect-square w-full mb-4">
+          <img id="curation-img" src="src/assets/images/regenerated_image_1780406758726.jpg" alt="Curation" class="w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 bg-[#121212]/95 text-[#C4A482] border border-[#C4A482]/25 font-mono text-[8px] uppercase tracking-widest px-2.5 py-1" id="curation-tag">
+            Editor's Choice • May Curation
+          </div>
+          
+          <!-- Slider Navigation Arrows -->
+          <button onclick="slideCuration(-1)" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#FAF9F5]/90 hover:bg-[#FAF9F5] border border-[#121212]/10 text-black flex items-center justify-center transition-transform hover:scale-105 shadow-sm">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <button onclick="slideCuration(1)" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#FAF9F5]/90 hover:bg-[#FAF9F5] border border-[#121212]/10 text-black flex items-center justify-center transition-transform hover:scale-105 shadow-sm">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+
+          <!-- Likes -->
+          <button onclick="incrementLike()" class="absolute bottom-3 right-3 bg-[#FAF9F5] text-[#121212] hover:bg-[#C4A482] hover:text-white border border-[#121212]/15 shadow-md px-3 py-1.5 flex items-center space-x-1.5 rounded-full transition-all">
+            <i data-lucide="heart" class="w-3.5 h-3.5" id="curation-like-icon"></i>
+            <span class="font-mono text-[10px] font-bold" id="curation-likes-count">284</span>
+          </button>
+        </div>
+
+        <div class="text-left">
+          <div class="flex items-center justify-between mb-1">
+            <h5 class="font-display font-medium text-lg tracking-wide shrink-0" id="curation-title">The Hermetic Tree & Angel</h5>
+            <span class="font-mono text-[9px] text-[#C4A482] uppercase tracking-wider font-semibold ml-2" id="curation-artist">By Shridhar</span>
+          </div>
+          <span class="inline-block font-mono text-[8.5px] uppercase tracking-wider text-[#121212]/60 bg-[#121212]/[0.04] px-2 py-0.5 border border-[#121212]/5 mb-3" id="curation-style">Sacred Geometry & Dotwork Realism</span>
+          <p class="font-sans text-[11px] text-[#121212]/75 leading-relaxed font-light mb-4" id="curation-story">
+            A masterful composition aligning an ascending angelic figure with a sacred tree of life whose roots merge into a DNA double-helix, grounded by a fine-line dial-compass.
+          </p>
+
+          <div class="pt-3 border-t border-[#121212]/10 flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-mono text-[8px] text-[#121212]/40 uppercase tracking-widest font-semibold">Anatomy Alignment</span>
+              <span class="font-sans text-[10px] text-[#121212]/70 font-semibold tracking-wide" id="curation-placement">Ventral Forearm Dynamic Axis</span>
+            </div>
+            <a href="#contact" onclick="closeTattoosPopup()" class="bg-[#121212] text-[#FAF9F5] hover:bg-[#C4A482] hover:text-white px-3.5 py-1.5 text-[9px] uppercase tracking-widest font-bold font-sans">
+              Discuss Style &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Art Director Direct Call Popup Desk -->
+    <div id="call-desk-popup" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+      <div onclick="closeCallDeskPopup()" class="absolute inset-0 bg-[#111111]/70 backdrop-blur-md"></div>
+      <div class="bg-[#FAF9F5] text-[#121212] border border-[#121212]/10 w-full max-w-md relative z-10 p-8 shadow-2xl">
+        <button onclick="closeCallDeskPopup()" class="absolute top-5 right-5 text-[#121212]/40 hover:text-[#121212]"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <div class="mb-6">
+          <div class="flex items-center space-x-2.5 mb-2.5">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="font-mono text-[9px] tracking-[0.25em] text-[#C4A482] font-semibold uppercase">Artist Hot Line Live</span>
+          </div>
+          <h3 class="font-display font-light text-2xl uppercase tracking-tight">Direct Atelier Line</h3>
+          <p class="font-sans text-xs text-[#121212]/60 leading-relaxed mt-1 font-light">Speak directly with Shridhar or queue your custom geometric consultation instantly.</p>
+        </div>
+
+        <div class="space-y-3.5 mb-8">
+          <div class="flex items-start space-x-3 bg-[#121212]/[0.03] p-3">
+            <i data-lucide="clock" class="w-4 h-4 text-[#C4A482] mt-0.5 shrink-0"></i>
+            <div>
+              <p class="font-sans text-[11px] font-bold uppercase tracking-wider text-[#121212]">Office Response Hours</p>
+              <p class="font-sans text-[10px] text-[#121212]/55 uppercase tracking-wide mt-0.5">Mon — Sat, 10:00 — 19:00 IST</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3 bg-[#121212]/[0.03] p-3">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-650 mt-0.5 shrink-0"></i>
+            <div>
+              <p class="font-sans text-[11px] font-bold uppercase tracking-wider text-[#121212]">Direct Atelier Contact</p>
+              <p class="font-mono text-xs text-[#121212]/75 mt-0.5 tracking-wider">+91 84311 36665</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <a href="tel:+918431136665" class="w-full bg-[#121212] text-[#FAF9F5] py-4 px-6 text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#C4A482] transition-all text-center flex items-center justify-center gap-3">
+            <i data-lucide="phone" class="w-4 h-4 text-[#C4A482]"></i>Secure Voice Call
+          </a>
+          <button onclick="triggerWhatsApp()" class="w-full bg-emerald-950/5 border border-emerald-500/20 text-emerald-900 py-4 px-6 text-xs uppercase tracking-[0.2em] font-medium hover:bg-emerald-900 hover:text-white transition-all">
+            Instant WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Zoom Lightbox Modal Frame -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-neutral-900/98 z-55 flex items-center justify-center p-4 md:p-8 hidden">
+      <button onclick="closeLightbox()" class="absolute top-6 right-6 p-2 text-[#FAF9F5] hover:text-[#FAF9F5]/80 border border-[#FAF9F5]/10 rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
+      <div class="bg-[#121212] text-[#FAF9F5] border border-[#FAF9F5]/15 max-w-4xl w-full p-6 md:p-8 flex flex-col md:flex-row gap-8 items-stretch justify-center relative shadow-2xl">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 z-20 bg-[#121212]/80 hover:bg-[#121212] text-[#FAF9F5] hover:text-[#C4A482] border border-[#FAF9F5]/15 p-2 transition-all"><i data-lucide="x" class="w-4 h-4"></i></button>
+        
+        <div class="w-full md:w-3/5 aspect-[3/4] relative bg-[#151515] overflow-hidden">
+          <img id="lightbox-img" src="" alt="Lightbox Zoom" class="w-full h-full object-cover grayscale contrast-110 brightness-95" />
+        </div>
+
+        <div class="w-full md:w-2/5 flex flex-col justify-between py-2">
+          <div class="space-y-6">
+            <div>
+              <span class="text-[10px] tracking-[0.3em] uppercase text-[#FAF9F5]/40" id="lightbox-cat-badge">COLLECTIVE RECORD</span>
+              <h3 class="font-display font-light text-3xl md:text-4xl tracking-tight uppercase text-[#FAF9F5] mt-2" id="lightbox-title">Sacred Geometric Artwork</h3>
+            </div>
+
+            <div class="space-y-4 border-t border-b border-[#FAF9F5]/10 py-6">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-[#FAF9F5]/50 tracking-widest uppercase">ANATOMICAL POSITION</span>
+                <span class="font-sans text-[#FAF9F5] tracking-wider text-right" id="lightbox-placement">Ventral Placement</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-[#FAF9F5]/50 tracking-widest uppercase">CANVAS SCALE</span>
+                <span class="font-mono text-[#FAF9F5] text-right" id="lightbox-scale">9cm × 9cm</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-[#FAF9F5]/50 tracking-widest uppercase">INTRINSIC HEALING</span>
+                <span class="font-sans text-[#FAF9F5] text-right">Medical Standard (14 Days)</span>
+              </div>
+            </div>
+
+            <p class="font-sans text-xs text-[#FAF9F5]/70 leading-relaxed font-light">
+              This skin sculpture was individually drafted following a comprehensive posture analysis, ensuring the fine lines align beautifully with the body's natural muscle flow. Let this prompt your custom illustration.
+            </p>
+          </div>
+
+          <div class="pt-6">
+            <a href="#contact" onclick="closeLightbox()" class="w-full block text-center py-4 bg-[#FAF9F5] text-[#121212] text-xs uppercase tracking-widest font-bold hover:opacity-90 transition-opacity">
+              Request Similar Style
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== LOGIC AND LOCAL PERSISTENCE STATE ENGINE ==================== -->
+    <script>
+      // 1. May Curation Slideshow data
+      const curationItems = [
+        {
+          id: "ang",
+          title: "The Hermetic Tree & Angel",
+          style: "Sacred Geometry & Dotwork Realism",
+          placement: "Ventral Forearm Dynamic Axis",
+          story: "A masterful composition aligning an ascending angelic figure with a sacred tree of life whose roots merge into a DNA double-helix, grounded by a fine-line dial-compass.",
+          image: "src/assets/images/regenerated_image_1780406758726.jpg",
+          artist: "Shridhar",
+          rating: "Editor's Choice • May Curation",
+          likes: 284,
+          liked: false
+        },
+        {
+          id: "sam",
+          title: "Ronin of the Rising Sun",
+          style: "Vibrant Neo-Japanese Realism",
+          placement: "Lateral Forearm Sleeve Alignment",
+          story: "Stunning execution of deep contrast blackwork armor paired with vibrant warm sunset gradients. Features traditional calligraphic kanji and a precise pagoda outline.",
+          image: "src/assets/images/japanese_samurai_tattoo_1780403108019.png",
+          artist: "Shridhar",
+          rating: "Most Shared Curation",
+          likes: 312,
+          liked: false
+        },
+        {
+          id: "prt",
+          title: "The Heritage Portrait",
+          style: "Hyper-Fidelity Smooth Realism",
+          placement: "Inner Forearm Extension",
+          story: "An emotionally resonant tribute portrait capturing lifetime expressions with single-needle micro-shading, rich depths, and seamless skin transitions.",
+          image: "src/assets/images/portrait_shading_tattoo_1780403621718.png",
+          artist: "Shridhar",
+          rating: "Highest Client Voted",
+          likes: 359,
+          liked: false
+        }
+      ];
+
+      let curationIndex = 0;
+
+      // Initialize icons
+      document.addEventListener("DOMContentLoaded", () => {
+        lucide.createIcons();
+        loadBookings();
+        updateLikesUI();
+      });
+
+      // 2. May Curation slider actions
+      function openTattoosPopup() {
+        document.getElementById("tattoos-modal").classList.remove("hidden");
+      }
+      function closeTattoosPopup() {
+        document.getElementById("tattoos-modal").classList.add("hidden");
+      }
+      function slideCuration(dir) {
+        curationIndex = (curationIndex + dir + curationItems.length) % curationItems.length;
+        const item = curationItems[curationIndex];
+
+        document.getElementById("curation-img").src = item.image;
+        document.getElementById("curation-tag").textContent = item.rating;
+        document.getElementById("curation-title").textContent = item.title;
+        document.getElementById("curation-artist").textContent = "By " + item.artist;
+        document.getElementById("curation-style").textContent = item.style;
+        document.getElementById("curation-story").textContent = item.story;
+        document.getElementById("curation-placement").textContent = item.placement;
+        document.getElementById("curation-likes-count").textContent = item.likes;
+
+        const icon = document.getElementById("curation-like-icon");
+        if (item.liked) {
+          icon.setAttribute("class", "w-3.5 h-3.5 text-red-500 fill-red-500");
+        } else {
+          icon.setAttribute("class", "w-3.5 h-3.5 text-black");
+        }
+        lucide.createIcons();
+      }
+
+      function incrementLike() {
+        const item = curationItems[curationIndex];
+        if (item.liked) {
+          item.likes -= 1;
+          item.liked = false;
+        } else {
+          item.likes += 1;
+          item.liked = true;
+        }
+        document.getElementById("curation-likes-count").textContent = item.likes;
+        const icon = document.getElementById("curation-like-icon");
+        if (item.liked) {
+          icon.setAttribute("class", "w-3.5 h-3.5 text-red-500 fill-red-500");
+        } else {
+          icon.setAttribute("class", "w-3.5 h-3.5 text-black");
+        }
+        lucide.createIcons();
+      }
+
+      function updateLikesUI() {
+        document.getElementById("curation-likes-count").textContent = curationItems[curationIndex].likes;
+      }
+
+      // 3. Direct messaging trigger
+      function triggerWhatsApp() {
+        const message = encodeURIComponent("Hello mist Tattoos, I would like to schedule a custom luxury consultation.");
+        window.open(`https://wa.me/918431136665?text=${message}`, "_blank");
+      }
+
+      // 4. Voice popup indicators
+      function openCallDeskPopup() {
+        document.getElementById("call-desk-popup").classList.remove("hidden");
+      }
+      function closeCallDeskPopup() {
+        document.getElementById("call-desk-popup").classList.add("hidden");
+      }
+
+      // 5. Portfolio Filtering Actions
+      function filterGallery(category) {
+        const cards = document.querySelectorAll(".gallery-item-card");
+        cards.forEach(card => {
+          if (category === 'all' || card.getAttribute("data-category") === category) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+
+        const tabs = document.querySelectorAll(".filter-tab");
+        tabs.forEach(tab => {
+          tab.classList.remove("font-semibold", "border-b", "border-[#FAF9F5]");
+          tab.classList.add("text-[#FAF9F5]/50");
+        });
+
+        const activeTab = document.getElementById(`filter-${category}`);
+        if (activeTab) {
+          activeTab.classList.add("font-semibold", "border-b", "border-[#FAF9F5]");
+          activeTab.classList.remove("text-[#FAF9F5]/50");
+        }
+      }
+
+      // 6. zoom overlay Lightbox
+      function openLightbox(title, category, placement, scale, imageUrl) {
+        document.getElementById("lightbox-modal").classList.remove("hidden");
+        document.getElementById("lightbox-img").src = imageUrl;
+        document.getElementById("lightbox-title").textContent = title;
+        document.getElementById("lightbox-cat-badge").textContent = `COLLECTIVE RECORD • ${category.toUpperCase()}`;
+        document.getElementById("lightbox-placement").textContent = placement;
+        document.getElementById("lightbox-scale").innerHTML = scale;
+      }
+      function closeLightbox() {
+        document.getElementById("lightbox-modal").classList.add("hidden");
+      }
+
+      // 7. Dynamic LocalStorage Booking State Core
+      let cachedBookings = [];
+
+      function loadBookings() {
+        try {
+          const cached = localStorage.getItem("mist_tattoos_bookings");
+          if (cached) {
+            cachedBookings = JSON.parse(cached);
+          }
+        } catch (e) {
+          console.error("Local load error:", e);
+        }
+        renderBookings();
+      }
+
+      function handleFormSubmission(event) {
+        event.preventDefault();
+        
+        const nameInput = document.getElementById("form-name").value;
+        const emailInput = document.getElementById("form-email").value;
+        const phoneInput = document.getElementById("form-phone").value;
+        const artistInput = document.getElementById("form-artist").value;
+        const dateInput = document.getElementById("form-date").value;
+        const timeInput = document.getElementById("form-time").value;
+        const descInput = document.getElementById("form-desc").value;
+        const whatsappInput = document.getElementById("form-whatsapp").checked;
+
+        if (!nameInput || !emailInput || !phoneInput || !dateInput || !timeInput || !descInput) {
+          document.getElementById("form-error-msg").classList.remove("hidden");
+          return;
+        }
+
+        document.getElementById("form-error-msg").classList.add("hidden");
+
+        const freshBooking = {
+          id: `mst-${Math.random().toString(36).substring(2, 8)}`,
+          name: nameInput,
+          email: emailInput,
+          phone: phoneInput,
+          artistPreference: artistInput,
+          date: dateInput,
+          timeSlot: timeInput,
+          description: descInput,
+          whatsapp: whatsappInput,
+          status: "pending",
+          createdAt: new Date().toISOString()
+        };
+
+        cachedBookings.unshift(freshBooking);
+        saveBookingsToCache();
+        
+        // Success panel visible
+        document.getElementById("appointment-form").classList.add("hidden");
+        document.getElementById("booking-success-message").classList.remove("hidden");
+
+        // trigger sliding menu review automatically
+        setTimeout(() => {
+          toggleDashboard(true);
+        }, 1500);
+      }
+
+      function saveBookingsToCache() {
+        try {
+          localStorage.setItem("mist_tattoos_bookings", JSON.stringify(cachedBookings));
+        } catch(e) {
+          console.error("Write error:", e);
+        }
+        renderBookings();
+      }
+
+      function renderBookings() {
+        const badge = document.getElementById("booking-badge");
+        badge.textContent = cachedBookings.length;
+
+        const listContainer = document.getElementById("booking-list");
+        if (cachedBookings.length === 0) {
+          listContainer.innerHTML = `<p class="text-xs text-[#121212]/50 italic text-center font-serif py-12">No active bookings scheduled in local index.</p>`;
+          return;
+        }
+
+        let innerHTML = `<div class="space-y-4">`;
+        cachedBookings.forEach(b => {
+          innerHTML += `
+            <div class="border border-[#121212]/15 p-4 bg-[#FAF9F5] shadow-xs relative">
+              <span class="absolute top-4 right-4 px-2 py-0.5 bg-yellow-50 text-yellow-800 text-[8px] font-mono tracking-widest uppercase font-semibold border border-yellow-200">Pending Review</span>
+              <h4 class="font-display font-bold text-xs uppercase tracking-wider text-[#121212] mb-1.5">${b.name}</h4>
+              <p class="font-sans text-[10px] text-[#121212]/75 leading-relaxed font-light mb-4">
+                <strong>Artist:</strong> ${b.artistPreference} — <strong>Slot:</strong> ${b.timeSlot}<br />
+                <strong>Contour Study Date:</strong> ${b.date}<br />
+                <span class="block mt-1 italic">"${b.description.substring(0, 80)}${b.description.length > 80 ? '...' : ''}"</span>
+              </p>
+              <div class="flex items-center justify-between pt-3 border-t border-[#121212]/10">
+                <span class="font-mono text-[8px] text-[#121212]/40 uppercase">${b.id}</span>
+                <button onclick="cancelBooking('${b.id}')" class="text-red-600 hover:text-red-700 text-[9px] uppercase tracking-wider font-bold">Cancel Request</button>
+              </div>
+            </div>
+          `;
+        });
+        innerHTML += `</div>`;
+        listContainer.innerHTML = innerHTML;
+      }
+
+      function cancelBooking(id) {
+        cachedBookings = cachedBookings.filter(b => b.id !== id);
+        saveBookingsToCache();
+      }
+
+      function resetBookingForm() {
+        document.getElementById("appointment-form").reset();
+        document.getElementById("appointment-form").classList.remove("hidden");
+        document.getElementById("booking-success-message").classList.add("hidden");
+      }
+
+      // 8. Sidebar dashboard drawer controls
+      function toggleDashboard(isOpen) {
+        const drawer = document.getElementById("dashboard-drawer");
+        if (isOpen) {
+          drawer.classList.remove("translate-x-full");
+        } else {
+          drawer.classList.add("translate-x-full");
+        }
+      }
+    </script>
+  </body>
+</html>
