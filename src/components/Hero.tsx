@@ -102,7 +102,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               href="https://maps.app.goo.gl/5o5VGzuRU2aBkFht9"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block border-2 border-red-600 bg-gradient-to-r from-warm-ivory via-red-50/10 to-warm-ivory shadow-[0_0_25px_rgba(220,38,38,0.25)] hover:shadow-[0_0_35px_rgba(220,38,38,0.45)] hover:bg-red-50/20 p-5 transition-all duration-300 text-left relative animate-pulse [animation-duration:2.5s]"
+              className="group block bg-gradient-to-r from-warm-ivory via-red-50/10 to-warm-ivory shadow-[0_0_25px_rgba(220,38,38,0.25)] hover:shadow-[0_0_35px_rgba(220,38,38,0.45)] hover:bg-red-50/20 p-5 transition-all duration-300 text-left relative animate-pulse [animation-duration:2.5s]"
             >
               {/* Vibrant Crimson Red beacon light in the top-right corner to draw immediate attention */}
               <div className="absolute top-3 right-3 flex items-center space-x-1.5 bg-red-600 text-white px-2 py-0.5 rounded text-[8px] font-mono tracking-wider font-bold uppercase shadow-sm">
