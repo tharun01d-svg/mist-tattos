@@ -82,7 +82,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display font-bold text-[40px] tracking-tight leading-[42.5px] text-matte-black text-center uppercase -ml-[150px] -mr-[149px] -mt-[4px] mb-[31px] border border-solid border-matte-black"
+            className="font-display font-bold text-[40px] tracking-tight leading-[42.5px] text-matte-black text-center uppercase -ml-[150px] -mr-[149px] -mt-[4px] mb-[31px]"
           >
             Compositional <br />
             <span className="italic font-normal tracking-wide lowercase text-matte-black/65 block my-1">
